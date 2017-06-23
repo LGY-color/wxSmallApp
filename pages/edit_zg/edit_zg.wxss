@@ -1,0 +1,11 @@
+/* edit_zg.wxss */
+.weui-cells{
+  margin-top: 0px;
+}
+.btn{
+  margin: 15px 0;
+
+}
+.weui-label{
+  color: #999;
+}

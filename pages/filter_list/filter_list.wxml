@@ -1,0 +1,14 @@
+<!--filter_list.wxml-->
+<view class="page">
+  <view class="weui-cells__title">筛选条件</view>
+  <view class="weui-cells weui-cells_after-title">
+    <block wx:for="{{listData.title}}" wx:item="item" wx:index="index">
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="onNavTo" data-post-list="{{item}}" data-post-filter="{{listData.content[index]}}">
+        <view class="weui-cell__bd">{{item}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{listData.content[index]}}</view>
+      </view>
+    </block>
+  </view>
+  <button class="weui-btn" type="primary" bindtap="onSureBack">确定</button>
+  <button class="weui-btn" type="default" bindtap="onNullBack">返回</button>
+</view>

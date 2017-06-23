@@ -1,0 +1,336 @@
+<!--edit_zg.wxml-->
+<!--edit.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">信息发布</view>
+    <view class="page__desc">
+      温馨提示：为提高信息发布有效性，请您多选用
+      <text class="red">修改</text>、
+      <text class="red">刷新</text>、
+      <text class="red">置顶</text>功能，半年内您可以免费发布 6 条信息，超出将需交158元解除后再重新发布。
+    </view>
+  </view>
+  <view class="list">
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">发布分类</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">分类</view>
+          </view>
+          <view class="weui-cell__bd">
+              <view class="weui-input">招工信息</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">发布地区</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">地区</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--input-->
+    <view class="classname">
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-label">标题</view>
+          <input class="weui-input" placeholder="请输入标题" />
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">有效期</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">有效期</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">月租金</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">月薪</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">日营业额</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">性别</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">工作经验</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">技能</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">工作时长</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">年龄</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">健康状况</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">押金要求</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">居住条件</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">是否外卖</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">开门时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--picker-->
+    <view class="classname">
+      <!--<view class="weui-cells__title">转让费</view>-->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">打烊时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--textarea-->
+    <view class="classname">
+      <view class="weui-cells__title">详情</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+            <!--<view class="weui-textarea-counter">0/200</view>-->
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--input-->
+    <view class="classname">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-label">联系人</view>
+          <input class="weui-input" placeholder="请输入联系人" />
+        </view>
+      </view>
+    </view>
+    <!--input-->
+    <view class="classname">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-label">联系电话</view>
+          <input class="weui-input" type="number" placeholder="请输入联系电话" />
+        </view>
+      </view>
+    </view>
+    <!--input-->
+    <view class="classname">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-label">QQ微信</view>
+          <input class="weui-input" placeholder="请输入QQ或者微信" />
+        </view>
+      </view>
+    </view>
+    
+    <!--uploadImg-->
+    <view class="classname">
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title">图片上传</view>
+                <view class="weui-uploader__info">{{files.length}}/2</view>
+              </view>
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                  <block wx:for="{{files}}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                      <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-uploader__input-box">
+                  <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btn">
+      <button class="weui-btn" type="primary" bindtap="onSureBack">
+      确定发布 
+      </button>
+    </view>
+
+  </view>
+</view>

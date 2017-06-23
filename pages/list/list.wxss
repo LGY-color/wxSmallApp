@@ -1,0 +1,99 @@
+/* list.wxss */
+.page__title{
+  font-size: 18px;
+}
+/*悬浮按钮*/
+.fixBtn{
+  position: fixed;
+  right: 0;
+  bottom: 180rpx;  
+}
+.fixBtn button{
+  width: 90rpx;
+  font-size: 30rpx;
+  color: #ffffff;
+  background-color: rgba(100, 100, 100, 0.8);
+  padding: 10rpx;
+  line-height: 1.1;
+  margin: 2px;
+}
+.page__desc text{
+   padding-left: 5px; 
+}
+/*详情样式*/
+.weui-form-preview__hd{
+  line-height: 1.5em;
+  text-align: left;
+  border-top: 1px solid #D9D9D9;
+}
+.weui-form-preview__bd{
+  text-align: left;
+  font-size: 1em;
+}
+.weui-form-preview__label{
+  text-align: right;
+}
+.weui-form-preview__value{
+  font-size: 15px;
+}
+.sc{
+  /*border: 1px solid #D5D5D6;*/
+  width: 60px;
+  height: 24px;
+  float: right;
+  font-size: 12px;
+  text-align: center;
+  line-height: 24px;
+}
+.sc:active{
+  color: #e64340;
+}
+.sc image{
+  width: 24px;
+  height: 24px;
+  /*vertical-align:middle;*/
+}
+.red{
+  font-size: 12px;
+}
+
+.lxrc{
+  font-size: 20px;
+}
+/*评论模块*/
+.weui-media-box{
+  padding: 8px 15px;
+} 
+.weui-media-box__thumb{
+  border-radius: 50%;
+}
+.username{
+  font-size: 13px;
+}
+.weui-media-box__desc{
+  font-size: 12px;
+}
+.commit{
+  font-size: 14px;
+  overflow: visible;
+  white-space:normal;
+}
+.fbz{
+  margin-left: 10px;
+  border: 1px solid #e64340;
+  padding: 1px 4px;
+  border-radius: 5px;
+  background-color: #e64340;
+  color: #ffffff;
+}
+.lc{
+  float: right;
+  color: #e64340;
+}
+.hf{
+  color: #888888;
+  font-size: 12px;
+}
+
+
+

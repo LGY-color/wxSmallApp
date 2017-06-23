@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/list/list",
+    "pages/index/index",
+    "pages/edit_pd/edit_pd",
+    "pages/edit_sb/edit_sb",
+    "pages/edit_cb/edit_cb",
+    "pages/edit_zg/edit_zg",
+    "pages/edit/edit",
+    "pages/menu/menu",
+    "pages/pd_detail/pd_detail",
+    "pages/menu_list/menu_list",
+    "pages/filter_list/filter_list",
+    "pages/filter/filter",
+    "pages/user/user",
+    "pages/logs/logs",
+    "pages/template/template"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/myhome.png",
+        "selectedIconPath": "images/myhome_active.png"
+      },
+      {
+        "pagePath": "pages/menu/menu",
+        "text": "分类",
+        "iconPath": "images/menu.png",
+        "selectedIconPath": "images/menu_active.png"
+      },
+      {
+        "pagePath": "pages/edit/edit",
+        "text": "发布",
+        "iconPath": "images/edit.png",
+        "selectedIconPath": "images/edit_active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人中心",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user_active.png"
+      }
+    ]
+  }
+}

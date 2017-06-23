@@ -1,0 +1,26 @@
+/* edit.wxss */
+.page__hd{
+  padding: 15px;
+}
+.red{
+  color: #e64340;
+}
+.weui-cells__title{
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.classname{
+  margin: 1px 0;
+}
+.weui-label{
+  color: #999;
+}
+.tip text{
+  font-size: 14px;
+}
+.weui-cells{
+  margin-top: 0px;
+}
+.btn{
+  margin: 15px 0;
+}

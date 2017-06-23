@@ -1,0 +1,152 @@
+<!--list.wxml-->
+<view class="page">
+  <view class="page__list">
+    <view class="page__title">
+      日下1500小吃店急转
+    </view>
+
+    <view class="page__desc">
+      <text>2017-06-22 10:43:18</text>
+      <text>查看：2566次</text>
+      <button class="sc">
+        <block wx:if="{{length < 5}}">
+          <image src="../../images/sc.png"></image>
+        </block>
+        <block wx:if="{{length > 5}}"> 收藏 </block>
+      </button>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview">
+      <!--<view class="weui-form-preview__hd">
+        <view class="weui-form-preview__label">日营业额</view>
+        <view class="weui-form-preview__value_in-hd">¥2400.00</view>
+      </view>
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__label">月租金</view>
+        <view class="weui-form-preview__value_in-hd">¥2400.00</view>
+      </view>-->
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">省份：</view>
+          <view class="weui-form-preview__value">福建</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">月租金：</view>
+          <view class="weui-form-preview__value">10000</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">日营业额：</view>
+          <view class="weui-form-preview__value">3000-4000</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">转让费：</view>
+          <view class="weui-form-preview__value">3000-4000</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">装修：</view>
+          <view class="weui-form-preview__value">豪华装修</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">周边：</view>
+          <view class="weui-form-preview__value">地铁 小区</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">详细：</view>
+          <view class="weui-form-preview__value">好店转，认真的，无水分，可自行看店好店转，认真的，无水分，可自行看店好店转，认真的，无水分，可自行看店好店转，认真的，无水分，可自行看店</view>
+        </view>
+
+      </view>
+
+      <!--<view class="weui-form-preview__ft">
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">辅助操作</navigator>
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">操作</navigator>
+      </view>-->
+      <!--联系方式-->
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">联系电话：</view>
+          <view class="weui-form-preview__value_in-hd">
+            <text>18960501805</text>
+          </view>
+          <view class="weui-form-preview__label">联系人称：</view>
+          <view class="weui-form-preview__value_in-hd">
+            <text class="lxrc">乐先生</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--评论-->
+    <view class="">
+      <view class="weui-cells__title">
+        <text>网友评论</text>
+        <text class="red">请文明评论，严禁恶意不实评论！</text>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+            <view class="weui-textarea-counter">0/200</view>
+          </view>
+        </view>
+      </view>
+      <button class="weui-btn" type="primary">发布评论</button>
+    </view>
+
+    <!--评论列表-->
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">评论列表</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindlongtap="longTapReply" data-username="冰凉冰凉" bindtap="actionSheetTap">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{icon60}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title username">
+              <text>冰凉冰凉</text>
+              <text class="fbz">发布者</text>
+              <text class="lc">1楼</text>
+            </view>
+            <view class="weui-media-box__desc">2017-06-23 9:36</view>
+            <view class="weui-media-box__title commit">店铺还不错，过几天我就过去看看，希望能和描述的一样，不然又要白跑一趟了。</view>
+          </view>
+        </view>
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{icon60}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title username">
+              <text>冰凉冰凉</text>
+              <text class="fbz">发布者</text>
+              <text class="lc">2楼</text>
+            </view>
+            <view class="weui-media-box__desc">2017-06-23 9:36</view>
+            <view class="weui-media-box__title commit">店铺还不错，过几天我就过去看看，希望能和描述的一样，不然又要白跑一趟了。</view>
+          </view>
+        </view>
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{icon60}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title username">
+              <text>冰凉冰凉</text>
+              <text class="fbz">发布者</text>
+              <text class="lc">2楼</text>
+            </view>
+            <view class="weui-media-box__desc">2017-06-23 9:36</view>
+            <view class="weui-media-box__title commit">
+              <text class="hf">回复：冰凉冰凉</text> 店铺还不错，过几天我就过去看看，希望能和描述的一样，不然又要白跑一趟了。</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!--悬浮按钮-->
+    <view class="fixBtn" bindtap="onReToMenu">
+      <!--<button>发布评论</button>-->
+      <button>返回列表</button>
+    </view>
+  </view>
+</view>

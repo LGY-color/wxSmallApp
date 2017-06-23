@@ -73,6 +73,6 @@ page {
   padding: 15px;
   
 }
-.test{
-  
+.small_tip{
+  font-size: 11px;
 }

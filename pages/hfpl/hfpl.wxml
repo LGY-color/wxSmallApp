@@ -1,0 +1,27 @@
+<!--hfpl.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">回复评论</view>
+    <view class="page__desc">
+      <text class="red">请文明评论，严禁恶意不实评论！</text>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-cells__title">回复评论</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="请输入回复评论" style="height: 3.3em" />
+          <view class="weui-textarea-counter">0/200</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="replySuccess">发布回复</button>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="default" bindtap="replyCancel">取消回复</button>
+  </view>
+  
+</view>

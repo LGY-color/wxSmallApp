@@ -36,7 +36,7 @@
           <view class="weui-form-preview__value">10000</view>
         </view>
         <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">日营业额：</view>
+          <view class="weui-form-preview__label">日营业：</view>
           <view class="weui-form-preview__value">3000-4000</view>
         </view>
         <view class="weui-form-preview__item">
@@ -90,14 +90,19 @@
           </view>
         </view>
       </view>
-      <button class="weui-btn" type="primary">发布评论</button>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary">发布评论</button>
+      </view>
     </view>
 
     <!--评论列表-->
     <view class="weui-panel weui-panel_access">
-      <view class="weui-panel__hd">评论列表</view>
+      <view class="weui-panel__hd">
+        评论列表
+        <text class="small_tip">长按评论内容可进行回复</text>
+      </view>
       <view class="weui-panel__bd">
-        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindlongtap="longTapReply" data-username="冰凉冰凉" bindtap="actionSheetTap">
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindlongtap="longTapReply" data-username="冰凉冰凉">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="{{icon60}}" />
           </view>
@@ -142,7 +147,7 @@
         </view>
       </view>
     </view>
-    
+
     <!--悬浮按钮-->
     <view class="fixBtn" bindtap="onReToMenu">
       <!--<button>发布评论</button>-->

@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/user_fbsc/user_fbsc",
     "pages/user/user",
+    "pages/user_je/user_je",
+    "pages/index/index",
     "pages/list/list",
     "pages/hfpl/hfpl",
     "pages/edit_pd/edit_pd",

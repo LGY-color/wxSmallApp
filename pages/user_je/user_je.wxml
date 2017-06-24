@@ -1,0 +1,40 @@
+<!--user_je.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">账户概况</view>
+    <view class="page__desc">为了保证发布信息的有效性，账户半年发布6次，超过6次需申请解锁。金币支持更多更强大的功能，你值得拥有！</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">当前金币数</view>
+          <view class="weui-form-preview__value_in-hd">20000</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">已经发布：</view>
+          <view class="weui-form-preview__value">6条</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">刷新费用：</view>
+          <view class="weui-form-preview__value">5金币</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">置顶费用：d</view>
+          <view class="weui-form-preview__value">18金币</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">解锁</navigator>
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">充值</navigator>
+      </view>
+    </view>
+  </view>
+  <!--悬浮按钮-->
+    <view class="fixBtn" bindtap="onReToMenu">
+      <!--<button>发布评论</button>-->
+      <button>返回上页</button>
+    </view>
+</view>

@@ -76,3 +76,18 @@ page {
 .small_tip{
   font-size: 11px;
 }
+/*悬浮按钮*/
+.fixBtn{
+  position: fixed;
+  right: 0;
+  bottom: 180rpx;  
+}
+.fixBtn button{
+  width: 90rpx;
+  font-size: 30rpx;
+  color: #ffffff;
+  background-color: rgba(100, 100, 100, 0.8);
+  padding: 10rpx;
+  line-height: 1.1;
+  margin: 2px;
+}

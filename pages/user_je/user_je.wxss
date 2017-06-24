@@ -1,0 +1,4 @@
+/* user_je.wxss */
+.weui-form-preview__bd{
+  text-align: left;
+}

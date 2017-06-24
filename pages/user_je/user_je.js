@@ -1,17 +1,11 @@
-// user.js
+// user_je.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    icon60: '../../images/demoimages.png',
-    icon201: '../../images/je_user.png',
-    icon202: '../../images/fb_user.png',
-    icon203: '../../images/sc_user.png',
-    icon204: '../../images/pl_user.png',
-    icon205: '../../images/xx_user.png',
-    icon206: '../../images/sz_user.png',
+  
   },
 
   /**

@@ -68,5 +68,16 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  onReToPlxx:function(){
+    wx.redirectTo({
+      url: '../user_plxx/user_plxx',
+    })
+  },
+  //跳转到发布收藏
+  toReToFbsc: function () {
+    wx.redirectTo({
+      url: '../user_fbsc/user_fbsc',
+    })
   }
 })

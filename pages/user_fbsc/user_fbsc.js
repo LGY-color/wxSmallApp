@@ -111,6 +111,7 @@ Page({
       'fail': function (res) {
       }
     })
-  }
+  },
+  
 
 })

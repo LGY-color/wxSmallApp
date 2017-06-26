@@ -1,10 +1,12 @@
 {
   "pages": [
-    "pages/user_fbsc/user_fbsc",
     "pages/user/user",
-    "pages/user_je/user_je",
-    "pages/index/index",
+    "pages/user_plxx/user_plxx",
     "pages/list/list",
+    "pages/user_fbsc/user_fbsc",
+    "pages/pd_detail/pd_detail",
+    "pages/user_zhje/user_zhje",
+    "pages/index/index",
     "pages/hfpl/hfpl",
     "pages/edit_pd/edit_pd",
     "pages/edit_sb/edit_sb",
@@ -12,7 +14,6 @@
     "pages/edit_zg/edit_zg",
     "pages/edit/edit",
     "pages/menu/menu",
-    "pages/pd_detail/pd_detail",
     "pages/menu_list/menu_list",
     "pages/filter_list/filter_list",
     "pages/filter/filter",

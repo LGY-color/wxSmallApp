@@ -1,0 +1,74 @@
+<!--user_plxx.wxml-->
+<view class="page">
+
+
+  <!--user_fbsc.wxml-->
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">评论列表</view>
+      <view class="page__desc">发布过的信息列表，支持置顶刷新修改等功能，
+        <text class="red">点击列表可看见功能栏</text>
+      </view>
+    </view>
+    <!--筛选栏-->
+    <view class="page__bd">
+      <!--评论列表-->
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">
+          评论列表
+          <text class="small_tip">点击内容可直接跳转到页面</text>
+        </view>
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="toTapReply" data-username="冰凉冰凉">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{icon60}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title username">
+                <text>冰凉冰凉</text>
+                <text class="fbz">发布者</text>
+                <text class="lc">1楼</text>
+              </view>
+              <view class="weui-media-box__desc">2017-06-23 9:36</view>
+              <view class="weui-media-box__title commit">店铺还不错，过几天我就过去看看，希望能和描述的一样，不然又要白跑一趟了。</view>
+            </view>
+          </view>
+          <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{icon60}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title username">
+                <text>冰凉冰凉</text>
+                <text class="fbz">发布者</text>
+                <text class="lc">2楼</text>
+              </view>
+              <view class="weui-media-box__desc">2017-06-23 9:36</view>
+              <view class="weui-media-box__title commit">店铺还不错，过几天我就过去看看，希望能和描述的一样，不然又要白跑一趟了。</view>
+            </view>
+          </view>
+          <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{icon60}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title username">
+                <text>冰凉冰凉</text>
+                <text class="fbz">发布者</text>
+                <text class="lc">2楼</text>
+              </view>
+              <view class="weui-media-box__desc">2017-06-23 9:36</view>
+              <view class="weui-media-box__title commit">
+                <text class="hf">回复：冰凉冰凉</text> 店铺还不错，过几天我就过去看看，希望能和描述的一样，不然又要白跑一趟了。</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--悬浮按钮-->
+  <view class="fixBtn" bindtap="onReToMenu">
+    <button>返回上页</button>
+  </view>
+</view>

@@ -3,7 +3,8 @@
   <view class="page__hd">
     <view class="page__title">发布消息</view>
     <view class="page__desc">发布过的信息列表，支持置顶刷新修改等功能，
-    <text class="red">点击列表可看见功能栏</text></view>
+      <text class="red">点击列表可看见功能栏</text>
+    </view>
   </view>
   <!--筛选栏-->
   <view class="page__bd">
@@ -22,7 +23,7 @@
         <view class="weui-panel weui-panel_access">
           <view class="weui-panel__hd">盘店</view>
           <view class="weui-panel__bd">
-            <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="onToFunction">
+            <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="">
               <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                 <image class="weui-media-box__thumb" src="{{icon60}}" />
               </view>
@@ -32,6 +33,15 @@
                 <view class="weui-media-box__time">日营业：5000</view>
                 <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
               </view>
+
+            </view>
+            <!--操作按钮-->
+            <view class="button-sp-area">
+              <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="openConfirm">置顶</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">刷新</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">套红</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">加粗</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">已成交</button>
             </view>
             <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
               <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
@@ -44,6 +54,14 @@
                 <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
               </view>
             </view>
+            <!--操作按钮-->
+            <view class="button-sp-area">
+              <button class="weui-btn mini-btn" type="warn" size="mini">置顶</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">刷新</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">套红</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">加粗</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">已成交</button>
+            </view>
             <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
               <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                 <image class="weui-media-box__thumb" src="{{icon60}}" />
@@ -54,6 +72,14 @@
                 <view class="weui-media-box__time">日营业：5000</view>
                 <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
               </view>
+            </view>
+            <!--操作按钮-->
+            <view class="button-sp-area">
+              <button class="weui-btn mini-btn" type="warn" size="mini">置顶</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">刷新</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">套红</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">加粗</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">已成交</button>
             </view>
           </view>
         </view>
@@ -75,6 +101,14 @@
               <view class="weui-media-box__time">日营业：5000</view>
               <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
             </view>
+            <!--操作按钮-->
+            <view class="button-sp-area">
+              <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="openConfirm">置顶</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">刷新</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">套红</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">加粗</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">已成交</button>
+            </view>
             <view class="weui-media-box weui-media-box_text">
               <view class="weui-media-box__title weui-media-box__title_in-text">
                 诚心求转日营业1500左右店铺
@@ -85,6 +119,14 @@
               <view class="weui-media-box__time">日营业：5000</view>
               <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
             </view>
+            <!--操作按钮-->
+            <view class="button-sp-area">
+              <button class="weui-btn mini-btn" type="warn" size="mini">置顶</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">刷新</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">套红</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">加粗</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">已成交</button>
+            </view>
             <view class="weui-media-box weui-media-box_text">
               <view class="weui-media-box__title weui-media-box__title_in-text">
                 诚心求转日营业1500左右店铺
@@ -94,6 +136,14 @@
               </view>
               <view class="weui-media-box__time">日营业：5000</view>
               <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
+            </view>
+            <!--操作按钮-->
+            <view class="button-sp-area">
+              <button class="weui-btn mini-btn" type="warn" size="mini">置顶</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">刷新</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">套红</button>
+              <button class="weui-btn mini-btn" type="primary" size="mini">加粗</button>
+              <button class="weui-btn mini-btn" type="default" size="mini">已成交</button>
             </view>
           </view>
         </view>

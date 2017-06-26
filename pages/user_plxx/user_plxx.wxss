@@ -1,0 +1,35 @@
+/* user_plxx.wxss */
+/*评论模块*/
+.weui-media-box{
+  padding: 8px 15px;
+} 
+.weui-media-box__thumb{
+  border-radius: 50%;
+}
+.username{
+  font-size: 13px;
+}
+.weui-media-box__desc{
+  font-size: 12px;
+}
+.commit{
+  font-size: 14px;
+  overflow: visible;
+  white-space:normal;
+}
+.fbz{
+  margin-left: 10px;
+  border: 1px solid #e64340;
+  padding: 1px 4px;
+  border-radius: 5px;
+  background-color: #e64340;
+  color: #ffffff;
+}
+.lc{
+  float: right;
+  color: #e64340;
+}
+.hf{
+  color: #888888;
+  font-size: 12px;
+}

@@ -41,3 +41,105 @@
     </view>
   </view>
 </template>
+
+<!-- 标题处理 置顶套红加粗星级 -->
+
+<template name="title-text">
+  <view class="">
+    <text wx:if="{{infoData.top == 1}}" class="top-text">顶</text>
+    <text wx:if="{{infoData.star == 1}}" class="star-text">星</text> 
+    <block wx:if="{{infoData.red == 1}}">
+      <block wx:if="{{infoData.bold == 1}}">
+      <text class="bold-text red-text">{{infoData.title}}</text>
+      </block>
+      <block wx:else>
+      <text class="red-text">{{infoData.title}}</text>
+      </block>
+    </block>
+    <block wx:else>
+      <block wx:if="{{infoData.bold == 1}}">
+      <text class="bold-text">{{infoData.title}}</text>
+      </block>
+      <block wx:else>
+      <text>{{infoData.title}}</text>
+      </block>
+    </block>
+                          
+  </view>
+</template>
+
+<!-- 带图的标题内容模板 -->
+<template name="img-title-content">
+
+  <view data-id="{{item.i_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="toDetailInfo">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+      <image mode="scaleToFill" class="weui-media-box__thumb" src="{{item.img_url[0] != ''?item.img_url[0]:icon60}}" />
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="weui-media-box__title">
+        <text wx:if="{{item.top == 1}}" class="top-text">顶</text>
+        <text wx:if="{{item.star == 1}}" class="star-text">星</text>
+        <block wx:if="{{item.red == 1}}">
+          <block wx:if="{{item.bold == 1}}">
+            <text class="bold-text red-text">{{item.title}}</text>
+          </block>
+          <block wx:else>
+            <text class="red-text">{{item.title}}</text>
+          </block>
+        </block>
+        <block wx:else>
+          <block wx:if="{{item.bold == 1}}">
+            <text class="bold-text">{{item.title}}</text>
+          </block>
+          <block wx:else>
+            <text>{{item.title}}</text>
+          </block>
+        </block>
+
+        
+
+      </view>
+      <view class="weui-media-box__desc">{{item.content}}</view>
+      <view class="weui-media-box__time">发布时间：{{item.update_time}}</view>
+    </view>
+  </view>
+
+</template>
+
+<!-- 不带图片的标题内容模板 -->
+<template name="title-content">
+  <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="toDetailInfo" data-id="{{item.i_id}}">
+    <view class="weui-cell__bd weui-cell_primary">
+      <view class="title-view"><label>[{{item.item_name}}]</label>{{item.title}}</view>
+    </view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </view>
+</template>
+
+<!-- 分类菜单 -->
+<template name="menu">
+  <view class="xcpd">
+    <view class="weui-panel">
+      <view class="weui-panel__hd">{{item.f_name}}</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+
+            <block wx:for="{{item.s_name}}" wx:for-item="i" wx:for-index="idx" wx:key="*this">
+              <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                  <!--<image src="{{icon20}}" style="width: 20px;height: 20px;margin-right: 5px" />-->
+                </view>
+                <view class="weui-cell__bd weui-cell_primary" bindtap="onReToMenuList" data-id="{{item.s_id[idx]}}">
+                  <view>{{i}}</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </view>
+            </block>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

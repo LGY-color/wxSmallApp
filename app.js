@@ -1,4 +1,6 @@
 //app.js
+import { Base } from './utils/base.js';
+var base = new Base();
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -26,6 +28,12 @@ App({
   },
   globalData:{
     userInfo:null
-  }
-  
+  },
+  toDetailInfo:function(event){
+    var id = base.getDataSet(event,'id');
+    wx.navigateTo({
+      url: '../list/list?id=' + id,
+    })
+  },
+
 })

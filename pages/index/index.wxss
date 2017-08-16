@@ -1,5 +1,5 @@
 /**index.wxss**/
-
+/* @import "..tata/base.wxss"; */
 .searchbar-result {
   margin-top: 0;
   font-size: 14px;

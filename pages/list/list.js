@@ -1,4 +1,6 @@
 // list.js
+import { List } from 'list-model.js';
+var list = new List();
 Page({
 
   /**
@@ -6,14 +8,30 @@ Page({
    */
   data: {
     length: 6,
-    icon60: '../../images/demoimages.png'
+    icon60: '../../images/demoimages.png',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var id = options.id;
+    this.setData({
+      'info_id':id
+    });
+    this._loadData();
+  },
+  _loadData: function () {
+    var that = this;
+    var id = this.data.info_id;
+    console.log('已经保存id：' + id);
+    list.getInfoById(id,(res) => {
+      console.log(res.comment);
+      this.setData({
+        'infoData': res.info[0],
+        'commentData':res.comment
+      });
+    });
   },
 
   /**
@@ -66,6 +84,7 @@ Page({
   },
   // 评论长按回复
   longTapReply: function (event) {
+    console.log(this.data.infoData);
     console.log(event.currentTarget.dataset.username);
     wx.navigateTo({
       url: '../hfpl/hfpl',

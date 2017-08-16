@@ -18,91 +18,11 @@
       </view>
     </view>
   </view>
-  <!--栏目列表模板一 店铺转让-->
-  <view class="dpzr">
-    <view class="mypanel">
-      <view class="weui-panel weui-panel_access">
-        <!--<view class="weui-panel__hd">图文组合列表</view>-->
-        <view class="weui-panel__bd">
-          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-              <image class="weui-media-box__thumb" src="{{icon60}}" />
-            </view>
-            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-              <view class="weui-media-box__title">广州店铺转让</view>
-              <view class="weui-media-box__desc">日下3000，大店，可实地查看无水分，非诚勿扰日下3000，大店，可实地查看无水分，非诚勿扰日下3000，大店，可实地查看无水分，非诚勿扰日下3000，大店，可实地查看无水分，非诚勿扰</view>
-              <view class="weui-media-box__time">日营业：5000</view>
-              <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
-            </view>
-          </navigator>
-          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-              <image class="weui-media-box__thumb" src="{{icon60}}" />
-            </view>
-            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-              <view class="weui-media-box__title">广州店铺转让</view>
-              <view class="weui-media-box__desc">日下3000，大店，可实地查看无水分，非诚勿扰</view>
-              <view class="weui-media-box__time">日营业：5000</view>
-              <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
-            </view>
-          </navigator>
-          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-              <image class="weui-media-box__thumb" src="{{icon60}}" />
-            </view>
-            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-              <view class="weui-media-box__title">广州店铺转让</view>
-              <view class="weui-media-box__desc">日下3000，大店，可实地查看无水分，非诚勿扰</view>
-              <view class="weui-media-box__time">日营业：5000</view>
-              <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
-            </view>
-          </navigator>
-        </view>
-      </view>
-    </view>
-  </view>
-  <!--栏目列表模板二 求转店铺-->
-  <view class="qzdp">
-    <view class="mypanel">
-      <view class="weui-panel weui-panel_access">
-        <!--<view class="weui-panel__hd">文字组合列表</view>-->
-        <view class="weui-panel__bd">
-          <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__title weui-media-box__title_in-text">
-            诚心求转日营业1500左右店铺
-            </view>
-            <view class="weui-media-box__desc">
-              合同无问题，无拆迁，无喝茶费，骗子勿扰！
-            </view>
-            <view class="weui-media-box__time">日营业：5000</view>
-            <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
-          </view>
-          <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__title weui-media-box__title_in-text">
-            诚心求转日营业1500左右店铺
-            </view>
-            <view class="weui-media-box__desc">
-              合同无问题，无拆迁，无喝茶费，骗子勿扰！合同无问题，无拆迁，无喝茶费，骗子勿扰！合同无问题，无拆迁，无喝茶费，骗子勿扰！合同无问题，无拆迁，无喝茶费，骗子勿扰！
-            </view>
-            <view class="weui-media-box__time">日营业：5000</view>
-            <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
-          </view>
-          <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__title weui-media-box__title_in-text">
-            诚心求转日营业1500左右店铺
-            </view>
-            <view class="weui-media-box__desc">
-              合同无问题，无拆迁，无喝茶费，骗子勿扰！
-            </view>
-            <view class="weui-media-box__time">日营业：5000</view>
-            <view class="weui-media-box__time">发布时间：2017-06-19 15:37</view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
+  <block wx:for="{{infoData}}" wx:key="*this">
+    <template is="img-title-content" data="{{item,icon60}}"></template>
+  </block>
   <!--悬浮按钮-->
   <view class="fixBtn" bindtap="onReToMenu">
-      <button>返回分类</button>
+    <button>返回分类</button>
   </view>
 </view>

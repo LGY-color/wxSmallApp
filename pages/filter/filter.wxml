@@ -6,14 +6,14 @@
     <view class="weui-cells weui-cells_after-title">
       <radio-group bindchange="radioChange">
         <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
-          <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" data-post-filter="123"/>
-          <view class="weui-cell__bd">{{item.name}}</view>
+          <radio class="weui-check" value="{{item.s_id}}" checked="{{item.checked}}" data-post-filter="{{item.s_name}}"/>
+          <view class="weui-cell__bd">{{item.s_name}}</view>
           <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
             <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
           </view>
         </label>
       </radio-group>
-      
+
     </view>
     <button class="weui-btn" type="primary" bindtap="onSureBack">确定</button>
     <button class="weui-btn" type="default" bindtap="onNullBack">返回</button>

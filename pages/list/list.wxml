@@ -1,18 +1,16 @@
 <!--list.wxml-->
+<import src="../template/template.wxml" />
 <view class="page">
   <view class="page__list">
     <view class="page__title">
-      日下1500小吃店急转
+      <template is="title-text" data="{{infoData}}"></template>
     </view>
 
     <view class="page__desc">
-      <text>2017-06-22 10:43:18</text>
-      <text>查看：2566次</text>
+      <text>{{infoData.update_time}}</text>
+      <text>查看：{{infoData.click_num}}</text>
       <button class="sc">
-        <block wx:if="{{length < 5}}">
-          <image src="../../images/sc.png"></image>
-        </block>
-        <block wx:if="{{length > 5}}"> 收藏 </block>
+        收藏 
       </button>
     </view>
   </view>
@@ -27,51 +25,186 @@
         <view class="weui-form-preview__value_in-hd">¥2400.00</view>
       </view>-->
       <view class="weui-form-preview__bd">
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">省份：</view>
-          <view class="weui-form-preview__value">福建</view>
-        </view>
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">月租金：</view>
-          <view class="weui-form-preview__value">10000</view>
-        </view>
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">日营业：</view>
-          <view class="weui-form-preview__value">3000-4000</view>
-        </view>
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">转让费：</view>
-          <view class="weui-form-preview__value">3000-4000</view>
-        </view>
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">装修：</view>
-          <view class="weui-form-preview__value">豪华装修</view>
-        </view>
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">周边：</view>
-          <view class="weui-form-preview__value">地铁 小区</view>
-        </view>
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">详细：</view>
-          <view class="weui-form-preview__value">好店转，认真的，无水分，可自行看店好店转，认真的，无水分，可自行看店好店转，认真的，无水分，可自行看店好店转，认真的，无水分，可自行看店</view>
+        <view wx:if="{{infoData.province != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">省份：</view>
+            <view class="weui-form-preview__value">{{infoData.province}}</view>
+          </view>
         </view>
 
+        <view wx:if="{{infoData.valid_period != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">有效期：</view>
+            <view class="weui-form-preview__value">{{infoData.valid_period}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.monthly_rent != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">月租金：</view>
+            <view class="weui-form-preview__value">{{infoData.monthly_rent}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.day_turnover != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">日营业额：</view>
+            <view class="weui-form-preview__value">{{infoData.day_turnover}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.water_electricity != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">水电费：</view>
+            <view class="weui-form-preview__value">{{infoData.water_electricity}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.to_serve != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">送餐：</view>
+            <view class="weui-form-preview__value">{{infoData.to_serve}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.transfer_fee != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">转让费：</view>
+            <view class="weui-form-preview__value">{{infoData.transfer_fee}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.shop_facilities != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">店铺设施：</view>
+            <view class="weui-form-preview__value">{{infoData.shop_facilities}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.hold_credentials != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">所持证书：</view>
+            <view class="weui-form-preview__value">{{infoData.hold_credentials}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.monthly_salary != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">月薪：</view>
+            <view class="weui-form-preview__value">{{infoData.monthly_salary}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.sex != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">性别：</view>
+            <view class="weui-form-preview__value">{{infoData.sex}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.work_experience != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">工作经验：</view>
+            <view class="weui-form-preview__value">{{infoData.work_experience}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.work_skill != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">工作技能：</view>
+            <view class="weui-form-preview__value">{{infoData.work_skill}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.work_hours != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">工作时长：</view>
+            <view class="weui-form-preview__value">{{infoData.work_hours}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.age != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">年龄：</view>
+            <view class="weui-form-preview__value">{{infoData.age}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.health_status != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">健康状况：</view>
+            <view class="weui-form-preview__value">{{infoData.health_status}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.cash_pledge != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">押金要求：</view>
+            <view class="weui-form-preview__value">{{infoData.cash_pledge}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.live_conditions != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">居住条件：</view>
+            <view class="weui-form-preview__value">{{infoData.live_conditions}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.takeaway_status != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">外卖情况：</view>
+            <view class="weui-form-preview__value">{{infoData.takeaway_status}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.open_hours != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">开门时间：</view>
+            <view class="weui-form-preview__value">{{infoData.open_hours}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.close_hours != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">打烊时间：</view>
+            <view class="weui-form-preview__value">{{infoData.close_hours}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.new_old != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">新旧程度：</view>
+            <view class="weui-form-preview__value">{{infoData.new_old}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.surroundings != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">周边环境：</view>
+            <view class="weui-form-preview__value">{{infoData.surroundings}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.decoration != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">装修：</view>
+            <view class="weui-form-preview__value">{{infoData.decoration}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.content != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">详情描述：</view>
+            <view class="weui-form-preview__value">{{infoData.content}}</view>
+          </view>
+        </view>
       </view>
 
       <!--<view class="weui-form-preview__ft">
         <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">辅助操作</navigator>
         <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">操作</navigator>
       </view>-->
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="ggswiper" wx:if="{{infoData.img_url != ''}}">
+            <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">
+              <block wx:for="{{infoData.img_url}}">
+                <swiper-item>
+                  <image src="{{item}}" class="slide-image" mode="scaleToFill"/>
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+        </view>
+      </view>
       <!--联系方式-->
       <view class="weui-form-preview__hd">
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">联系电话：</view>
           <view class="weui-form-preview__value_in-hd">
-            <text>18960501805</text>
+            <text>{{infoData.contact_phone}}</text>
           </view>
           <view class="weui-form-preview__label">联系人称：</view>
           <view class="weui-form-preview__value_in-hd">
-            <text class="lxrc">乐先生</text>
+            <text class="lxrc">{{infoData.contact_name}}</text>
           </view>
         </view>
       </view>
@@ -97,55 +230,34 @@
 
     <!--评论列表-->
     <view class="weui-panel weui-panel_access">
+
       <view class="weui-panel__hd">
         评论列表
         <text class="small_tip">长按评论内容可进行回复</text>
       </view>
+
       <view class="weui-panel__bd">
-        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindlongtap="longTapReply" data-username="冰凉冰凉">
-          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{icon60}}" />
-          </view>
-          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title username">
-              <text>冰凉冰凉</text>
-              <text class="fbz">发布者</text>
-              <text class="lc">1楼</text>
+        <block wx:for="{{commentData}}" >
+          <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindlongtap="longTapReply" data-username="冰凉冰凉">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{icon60}}" />
             </view>
-            <view class="weui-media-box__desc">2017-06-23 9:36</view>
-            <view class="weui-media-box__title commit">店铺还不错，过几天我就过去看看，希望能和描述的一样，不然又要白跑一趟了。</view>
-          </view>
-        </view>
-        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{icon60}}" />
-          </view>
-          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title username">
-              <text>冰凉冰凉</text>
-              <text class="fbz">发布者</text>
-              <text class="lc">2楼</text>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title username">
+                <text>{{item.u_name}}</text>
+                <text class="fbz" wx:if="{{item.uid == infoData.uid}}">发布者</text>
+                <text class="lc">{{index+1}}楼</text>
+              </view>
+              <view class="weui-media-box__desc">{{item.update_time}}</view>
+              <view class="weui-media-box__title commit">
+                <text class="hf" wx:if="{{item.ur_name != null}}">回复：{{item.ur_name}}</text> 
+                {{item.content}}
+              </view>
             </view>
-            <view class="weui-media-box__desc">2017-06-23 9:36</view>
-            <view class="weui-media-box__title commit">店铺还不错，过几天我就过去看看，希望能和描述的一样，不然又要白跑一趟了。</view>
           </view>
-        </view>
-        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{icon60}}" />
-          </view>
-          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title username">
-              <text>冰凉冰凉</text>
-              <text class="fbz">发布者</text>
-              <text class="lc">2楼</text>
-            </view>
-            <view class="weui-media-box__desc">2017-06-23 9:36</view>
-            <view class="weui-media-box__title commit">
-              <text class="hf">回复：冰凉冰凉</text> 店铺还不错，过几天我就过去看看，希望能和描述的一样，不然又要白跑一趟了。</view>
-          </view>
-        </view>
+        </block>
       </view>
+
     </view>
 
     <!--悬浮按钮-->

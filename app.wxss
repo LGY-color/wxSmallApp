@@ -91,3 +91,46 @@ page {
   line-height: 1.1;
   margin: 2px;
 }
+.top-text{
+  /* margin-left: 10px; */
+  border: 1px solid #e64340;
+  padding: 1px 2px;
+  border-radius: 5px;
+  background-color: #e64340;
+  color: #ffffff;
+  font-size: 12px;
+  float: right;
+}
+.star-text{
+  /* margin-left: 10px; */
+  border: 1px solid yellow;
+  padding: 1px 4px;
+  border-radius: 5px;
+  background-color: yellow;
+  color: #000;
+  font-size: 12px;
+  float: right;
+}
+.red-text{
+  color: red;
+}
+.bold-text{
+  font-weight: 900;
+  
+}
+.title-view{
+  margin-left: -20px;
+  font-weight:400;
+  font-size:17px;
+  width:600rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  word-wrap:normal;
+  word-wrap:break-word;
+  word-break:break-all;
+}
+.slide-image{
+  width: 100%;
+  height: 100%;
+}

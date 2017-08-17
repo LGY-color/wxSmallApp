@@ -6,7 +6,7 @@ class MenuList extends Base {
     //根据类型id获取当前类型下的信息
     getInfoByItem(id,style,page=0,callback) {
         var params = {
-            url:'info/getInfoByItem/'+id+'?style='+style+'?page='+page,
+            url:'info/getInfoByItem/'+id+'?style='+style+'&page='+page,
             sCallBack:function (res) {
                 callback && callback(res)
             }
@@ -15,7 +15,7 @@ class MenuList extends Base {
     }
     getInfoByCondition(condition,callback){
         var params = {
-            url:'info/getInfoByItem',
+            url:'info/getConditionInfo',
             type:'POST',
             data:condition,
             dataType:'JSON',

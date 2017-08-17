@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/index/index", 
+    "pages/edit/edit",
+    "pages/list/list",
     "pages/menu/menu",
     "pages/menu_list/menu_list",
-    "pages/list/list",
-    "pages/edit/edit",
     "pages/pd_detail/pd_detail",
     "pages/user/user", 
     "pages/hfpl/hfpl",

@@ -3,26 +3,30 @@
 <import src="../template/template.wxml" />
 
 <view class="page">
-  <!--搜索-->
-  <template is="searchbar" data="" />
-  <!--筛选栏-->
-  <view class="filter">
-    <view class="weui-flex">
-      <block wx:for="{{tabs}}" wx:key="*this" wx:for-item="item">
-        <view class="weui-flex__item {{curNav==index?'red':''}}" bindtap="tabClick" id="{{index}}">
-          <view class="">{{item}}</view>
+  <scroll-view scroll-y="true" style="height: {{windowHeight}}px;" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-top="{{scrollTop}}" lower-threshold="50">
+    <!--搜索-->
+    <template is="searchbar" data="" />
+    <!--筛选栏-->
+    <view class="filter">
+      <view class="weui-flex">
+        <block wx:for="{{tabs}}" wx:key="*this" wx:for-item="item">
+          <view class="weui-flex__item {{curNav==index?'red':''}}" bindtap="tabClick" id="{{index}}">
+            <view class="">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-flex__item" bindtap="onReToFilterList">
+          <view class="">筛选</view>
         </view>
-      </block>
-      <view class="weui-flex__item" bindtap="onReToFilterList">
-        <view class="">筛选</view>
       </view>
     </view>
-  </view>
-  <block wx:for="{{infoData}}" wx:key="*this">
-    <template is="img-title-content" data="{{item,icon60}}"></template>
-  </block>
-  <!--悬浮按钮-->
-  <view class="fixBtn" bindtap="onReToMenu">
-    <button>返回分类</button>
-  </view>
+    <block wx:for="{{infoData}}" wx:key="*this">
+      <template is="img-title-content" data="{{item,icon60}}"></template>
+    </block>
+
+
+    <!--悬浮按钮-->
+    <view class="fixBtn" bindtap="onReToMenu">
+      <button>返回分类</button>
+    </view>
+  </scroll-view>
 </view>

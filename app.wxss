@@ -76,6 +76,9 @@ page {
 .small_tip{
   font-size: 11px;
 }
+.fix{
+  position: fixed;
+}
 /*悬浮按钮*/
 .fixBtn{
   position: fixed;

@@ -120,7 +120,8 @@ Page({
     var prevPage = pages[pages.length - 2];  //上一个页面
     // console.log(obj);
     prevPage.setData({
-      'condition':obj
+      'condition':obj,
+      'infoData':[]
     });
     wx.navigateBack();
   },

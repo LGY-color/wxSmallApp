@@ -12,7 +12,8 @@ Page({
     icon60: '../../images/demoimages.png',
     page: 0,
     infoData: [],
-    scrollTop: 50
+    scrollTop: 100,
+    scrollStatus:true
   },
   /**
    * 生命周期函数--监听页面加载
@@ -36,7 +37,7 @@ Page({
   tapMove: function(e) {
     console.log('tapMove');
     this.setData({
-      'scrollTop': this.data.scrollTop
+      'scrollTop': this.data.scrollTop + 50 
     })
   },
   //提示
@@ -65,13 +66,18 @@ Page({
   //   // console.log(e)
   // },
   lower: function (e) {
+    console.log('lower');
     this.tapMove();
-    var page = this.data.page;
-    page = page + 7;
-    this.setData({
-      'page': page
-    });
-    this._loadData();
+    var status = this.data.scrollStatus;
+    if(status){
+      var page = this.data.page;
+      page = page + 7;
+      this.setData({
+        'page': page,
+        'scrollStatus': false
+      });
+      this._loadData();
+    }
     // console.log('lower');
     // console.log(e)
   },
@@ -111,7 +117,8 @@ Page({
       res = JSON.parse(res);
       console.log(res);
       this.setData({
-        'infoData': infoData.concat(res)
+        'infoData': infoData.concat(res),
+        'scrollStatus':true
       });
     });
   },

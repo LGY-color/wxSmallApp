@@ -19,7 +19,9 @@
             <view class="weui-label">分类</view>
           </view>
           <view class="weui-cell__bd">
-              <view class="weui-input">对外承包</view>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
           </view>
         </view>
       </view>
@@ -309,6 +311,10 @@
           </view>
         </view>
       </view>
+    </view>
+    <!--悬浮按钮-->
+    <view class="fixBtn" bindtap="backLast">
+      <button>返回上页</button>
     </view>
     <view class="btn">
       <button class="weui-btn" type="primary" bindtap="onSureBack">

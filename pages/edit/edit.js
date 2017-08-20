@@ -1,4 +1,7 @@
 // edit.js
+import { Base } from '../../utils/base.js';
+var edit = new Base();
+var app = getApp();
 Page({
 
   /**
@@ -7,23 +10,26 @@ Page({
   data: {
     grids: [0, 1, 2, 3, 4, 5, 6, 7, 8],
     filter: ["店铺转让", "求转店铺", "招工信息", "求职信息", "对外承包", "需求承包", "餐具设备", "其他物品", "未开发"],
+    navUrl: ["../edit_pd/edit_pd", "../edit_pd/edit_pd", "../edit_zg/edit_zg", "../edit_zg/edit_zg", "../edit_cb/edit_cb", "../edit_cb/edit_cb", "../edit_sb/edit_sb", "../edit_sb/edit_sb"],
     img: [
-    "../../images/pd01.png", 
-    "../../images/pd02.png",           
-    "../../images/pd03.png", 
-    "../../images/pd04.png", 
-    "../../images/pd05.png", 
-    "../../images/pd06.png", 
-    "../../images/pd07.png", 
-    "../../images/pd08.png", 
-    "../../images/pd09.png"]
+      "../../images/pd01.png",
+      "../../images/pd02.png",
+      "../../images/pd03.png",
+      "../../images/pd04.png",
+      "../../images/pd05.png",
+      "../../images/pd06.png",
+      "../../images/pd07.png",
+      "../../images/pd08.png",
+      "../../images/pd09.png"]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (!app.globalData.userInfo) {
+      app.userSureLogin();
+    }
   },
 
   /**
@@ -73,5 +79,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  navUrl: function (event) {
+    var navUrl = edit.getDataSet(event, 'navurl');
+    wx.navigateTo({
+      url: navUrl
+    })
   }
 })

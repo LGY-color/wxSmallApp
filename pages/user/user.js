@@ -1,4 +1,5 @@
 // user.js
+var app = getApp();
 Page({
 
   /**
@@ -12,13 +13,26 @@ Page({
     icon204: '../../images/pl_user.png',
     icon205: '../../images/xx_user.png',
     icon206: '../../images/sz_user.png',
+    userInfo: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
+    this.setData({
+      "userInfo":app.globalData.userInfo
+    });
+    // console.log(this.data.userInfo);
+    if(!app.globalData.userInfo){
+      app.userSureLogin((res)=>{
+        console.log(res);
+        this.setData({
+          "userInfo":app.globalData.userInfo
+        });
+      });
+    }
   },
 
   /**

@@ -1,11 +1,12 @@
 import {Config} from '../utils/config.js';
-
+import {Token} from '../utils/token.js';
 class Base{
   constructor(){
     this.baseRequestUrl = Config.restUrl;
   }
   //封装请求
   request(params){
+    var that = this;
     var url = this.baseRequestUrl + params.url;
     if(!params.dataType){
       params.dataType = '';
@@ -26,12 +27,32 @@ class Base{
         // if (params.sCallBack){
         //   params.sCallBack(res);
         // }
-        params.sCallBack && params.sCallBack(res.data);
+        var code = res.statusCode.toString();
+        var startChar = code.charAt(0);
+        if(startChar == '2'){
+          params.sCallBack && params.sCallBack(res.data);
+        }else{
+          if(code == '401'){
+            //token.getTokenFromServer
+            //base.request
+            that._refetch(params);
+          }
+          params.eCallBack && params.eCallBack(res.data);
+        }
+
+        
       },
       fail: function(res) {
         console.log(res);
       },
       complete: function(res) {},
+    })
+  }
+
+  _refetch(params){
+    var token =  new Token();
+    token.getTokenFromServer((token)=>{
+      this.request(params);
     })
   }
 

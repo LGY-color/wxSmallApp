@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['店铺转让', '求转店铺', '招工信息', '求职信息', '对外承包', '需求承包', '餐具设备', '其他物品'],
+    // array: ['店铺转让', '求转店铺', '招工信息', '求职信息', '对外承包', '需求承包', '餐具设备', '其他物品'],
     index: 0,
     items: [
       { value: 'USA', name: '美国' },
@@ -22,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log();
   },
 
   /**
@@ -118,6 +118,11 @@ Page({
     wx.previewImage({
       current: e.currentTarget.id, // 当前显示图片的http链接
       urls: this.data.files // 需要预览的图片http链接列表
+    })
+  },
+  backLast:function(){
+    wx.navigateBack({
+      delta: 1 // 回退前 delta(默认为1) 页面
     })
   }
 })

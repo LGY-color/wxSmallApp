@@ -279,6 +279,10 @@
         </view>
       </view>
     </view>
+    <!--悬浮按钮-->
+    <view class="fixBtn" bindtap="backLast">
+      <button>返回上页</button>
+    </view>
     <view class="btn">
       <button class="weui-btn" type="primary" bindtap="onSureBack">
         确定发布

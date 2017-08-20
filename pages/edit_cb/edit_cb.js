@@ -119,5 +119,10 @@ Page({
       current: e.currentTarget.id, // 当前显示图片的http链接
       urls: this.data.files // 需要预览的图片http链接列表
     })
+  },
+  backLast:function(){
+    wx.navigateBack({
+      delta: 1 // 回退前 delta(默认为1) 页面
+    })
   }
 })

@@ -6,14 +6,14 @@ class Token{
         this.username = '';
     }
     verify(){
-        var token = wx.getStorageInfoSync('token');
+        var token = wx.getStorageSync('token');
         if(!token){
             this.getTokenFromServer();
         }else{
             this._verifyFromServer(token);
         }
     }
-    _veirfyFromServer(token) {
+    _verifyFromServer(token) {
         var that = this;
         wx.request({
             url: that.verifyUrl,
@@ -27,7 +27,7 @@ class Token{
                     that.getTokenFromServer();
                 }
             }
-        })
+        });
     }
 
     getTokenFromServer(callBack) {

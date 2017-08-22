@@ -23,7 +23,6 @@ Page({
   data: {
     xcpd: null,
     files: [],
-    filesImg: []
   },
   /**
    * 生命周期函数--监听页面加载
@@ -97,26 +96,34 @@ Page({
   },
   // uploadImg
   chooseImage: function (e) {
+    var filesLength = this.data.files.length;
     var that = this;
-    initQiniu();
-    wx.chooseImage({
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        that.upImg(res);
-        that.setData({
-          files: that.data.files.concat(res.tempFilePaths)
-        });
-
-      }
-    })
+    if (filesLength < 3) {
+      initQiniu();
+      wx.chooseImage({
+        sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function (res) {
+          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+          that.upImg(res);
+          // that.setData({
+          //   files: that.data.files.concat(res.tempFilePaths)
+          // });
+        }
+      });
+    }else{
+      wx.showToast({
+        title: '最多上传3张图片',
+        image: '../../images/cry.png',
+        duration: 2000
+      });
+    }
   },
   previewImage: function (e) {
     wx.previewImage({
       current: e.currentTarget.id, // 当前显示图片的http链接
       urls: this.data.files // 需要预览的图片http链接列表
-    })
+    });
   },
   backLast: function () {
     wx.navigateBack({
@@ -177,8 +184,27 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    var data = e.detail.value;
+    data.img_url = this.data.files;
+    console.log(data);
     xcpd.addInfo(e.detail.value, (res) => {
-      console.log(res);
+      if(res == 1){
+        wx.showToast({
+          title: '发布成功',
+          icon: 'success',
+          duration: 1000
+        });
+        setTimeout(function(){
+          wx.navigateBack();
+        },1000);
+        
+      }else{
+        wx.showToast({
+          title: '发布异常,请重试',
+          image: '../../images/cry.png',
+          duration: 2000
+        });
+      }
     });
   },
   formReset: function () {
@@ -192,7 +218,7 @@ Page({
     qiniuUploader.upload(filePath, (res) => {
       console.log(res);
       that.setData({
-        'filesImg': that.data.files.concat(res.imageURL)
+        'files': that.data.files.concat(res.imageURL)
       });
       wx.showToast({
         title: '上传成功',
@@ -201,7 +227,7 @@ Page({
       });
     }, (error) => {
       console.error('error: ' + JSON.stringify(error));
-      var files = that.data.files.pop();
+      // var files = that.data.files.pop();
       wx.showToast({
         title: '上传失败，请重试',
         image: '../../images/cry.png',

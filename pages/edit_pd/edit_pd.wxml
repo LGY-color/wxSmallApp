@@ -161,8 +161,8 @@
       <view class="classname">
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
-            <view class="weui-label">QQ微信</view>
-            <input class="weui-input" placeholder="请输入QQ或者微信" name="contact_wx"/>
+            <view class="weui-label">微信</view>
+            <input class="weui-input" placeholder="请输入微信" name="contact_wx"/>
           </view>
         </view>
       </view>
@@ -284,7 +284,7 @@
               <view class="weui-uploader">
                 <view class="weui-uploader__hd">
                   <view class="weui-uploader__title">图片上传</view>
-                  <view class="weui-uploader__info">{{files.length}}/9</view>
+                  <view class="weui-uploader__info">{{files.length}}/3</view>
                 </view>
                 <view class="weui-uploader__bd">
                   <view class="weui-uploader__files" id="uploaderFiles">
@@ -305,7 +305,7 @@
       </view>
       <view class="btn-area btn">
         <button formType="submit" class="weui-btn" type="primary">确定发布</button>
-        <button formType="reset" class="weui-btn">重置</button>
+        <!-- <button formType="reset" class="weui-btn">重置</button> -->
       </view>
     </form>
     <!--悬浮按钮-->

@@ -5,7 +5,8 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping"
+          />
           <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
             <icon type="clear" size="14"></icon>
           </view>
@@ -47,24 +48,24 @@
 <template name="title-text">
   <view class="">
     <text wx:if="{{infoData.top == 1}}" class="top-text">顶</text>
-    <text wx:if="{{infoData.star == 1}}" class="star-text">星</text> 
+    <text wx:if="{{infoData.star == 1}}" class="star-text">星</text>
     <block wx:if="{{infoData.red == 1}}">
       <block wx:if="{{infoData.bold == 1}}">
-      <text class="bold-text red-text">{{infoData.title}}</text>
+        <text class="bold-text red-text">{{infoData.title}}</text>
       </block>
       <block wx:else>
-      <text class="red-text">{{infoData.title}}</text>
+        <text class="red-text">{{infoData.title}}</text>
       </block>
     </block>
     <block wx:else>
       <block wx:if="{{infoData.bold == 1}}">
-      <text class="bold-text">{{infoData.title}}</text>
+        <text class="bold-text">{{infoData.title}}</text>
       </block>
       <block wx:else>
-      <text>{{infoData.title}}</text>
+        <text>{{infoData.title}}</text>
       </block>
     </block>
-                          
+
   </view>
 </template>
 
@@ -96,7 +97,7 @@
           </block>
         </block>
 
-        
+
 
       </view>
       <view class="weui-media-box__desc">{{item.content}}</view>
@@ -142,4 +143,48 @@
       </view>
     </view>
   </view>
+</template>
+
+
+
+<!-- 带图的标题内容模板 带操作按钮-->
+<template name="img-title-content">
+
+  <view data-id="{{item.i_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="toDetailInfo">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+      <image mode="scaleToFill" class="weui-media-box__thumb" src="{{item.img_url[0] != ''?item.img_url[0]:icon60}}" />
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="weui-media-box__title">
+        <text wx:if="{{item.top == 1}}" class="top-text">顶</text>
+        <text wx:if="{{item.star == 1}}" class="star-text">星</text>
+        <block wx:if="{{item.red == 1}}">
+          <block wx:if="{{item.bold == 1}}">
+            <text class="bold-text red-text">{{item.title}}</text>
+          </block>
+          <block wx:else>
+            <text class="red-text">{{item.title}}</text>
+          </block>
+        </block>
+        <block wx:else>
+          <block wx:if="{{item.bold == 1}}">
+            <text class="bold-text">{{item.title}}</text>
+          </block>
+          <block wx:else>
+            <text>{{item.title}}</text>
+          </block>
+        </block>
+      </view>
+      <view class="weui-media-box__desc">{{item.content}}</view>
+      <view class="weui-media-box__time">发布时间：{{item.update_time}}</view>
+    </view>
+  </view>
+  <view class="button-sp-area">
+    <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="setTop" data-infoid="{{item.i_id}}">置顶</button>
+    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setRefresh" data-infoid="{{item.i_id}}">刷新</button>
+    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setRed" data-infoid="{{item.i_id}}">套红</button>
+    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setBold" data-infoid="{{item.i_id}}">加粗</button>
+    <button class="weui-btn mini-btn" type="default" size="mini" bindtap="setDeal" data-infoid="{{item.i_id}}">已成交</button>
+  </view>
+
 </template>

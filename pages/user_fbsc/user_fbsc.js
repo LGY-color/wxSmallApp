@@ -1,4 +1,6 @@
 // user_fbsc.js
+import { Fbsc } from 'user_fbsc-model.js';
+var fbsc = new Fbsc();
 Page({
 
   /**
@@ -6,15 +8,64 @@ Page({
    */
   data: {
     icon60: '../../images/demoimages.png',
+    infoData:[],
+    page:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._loadData();
   },
-
+  _loadData:function(page=0){
+    var that = this;
+    var data = this.data.infoData;
+    fbsc.getInfoById(page,(res)=>{
+      console.log(res);
+      that.setData({
+        'infoData':data.concat(res)
+      });
+    });
+  },
+  toDetailInfo:function(event){
+    var id = fbsc.getDataSet(event,'id');
+    wx.navigateTo({
+      url: '../list/list?id=' + id,
+    });
+  },
+  //提示
+  moreToast:function(res){
+    if(res == ''){
+      wx.showToast({
+        title: '没有更多了',
+        icon: 'loading',
+        duration: 1000
+      });
+    }else{
+      wx.showToast({
+        title: '加载中',
+        icon: 'loading',
+        duration: 500
+      });
+    }
+  },
+  //获取置顶
+  getMoreInfo:function(event){
+    var that = this;
+    var page = this.data.page;
+    var data = this.data.infoData;
+    page = page + 5;
+    this.setData({
+      "page" :page
+    });
+    fbsc.getInfoById(page,(res)=>{
+      that.moreToast(res);
+      that.setData({
+        'infoData':data.concat(res)
+      });
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

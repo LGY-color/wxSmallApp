@@ -206,6 +206,10 @@
           <view class="weui-form-preview__value_in-hd">
             <text class="lxrc">{{infoData.contact_name}}</text>
           </view>
+          <view class="weui-form-preview__label">微信号：</view>
+          <view class="weui-form-preview__value_in-hd">
+            <text class="lxrc">{{infoData.contact_wx}}</text>
+          </view>
         </view>
       </view>
     </view>

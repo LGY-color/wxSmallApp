@@ -13,6 +13,18 @@ class Fbsc extends Base {
         }
         this.request(params);
     }
+    setLevelStatus(data,callBack){
+        var params = {
+            url: 'level/setLevelStatus',
+            data: data,
+            type: 'POST',
+            dataType:'JSON',
+            sCallBack: function (res) {
+                callBack && callBack(res);
+            }
+        }
+        this.request(params);
+    }
 }
 
 export { Fbsc };

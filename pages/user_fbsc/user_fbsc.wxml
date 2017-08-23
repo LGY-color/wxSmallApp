@@ -26,7 +26,7 @@
           <!--<view class="weui-panel__hd">图文组合列表</view>-->
           <view class="weui-panel__bd">
             <block wx:for="{{infoData}}" wx:key="*this">
-              <template is="img-title-content" data="{{item,icon60}}"></template>
+              <template is="img-title-content-btn" data="{{item,icon60}}"></template>
             </block>
           </view>
           <view class="weui-panel__ft">

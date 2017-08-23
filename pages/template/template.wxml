@@ -148,7 +148,7 @@
 
 
 <!-- 带图的标题内容模板 带操作按钮-->
-<template name="img-title-content">
+<template name="img-title-content-btn">
 
   <view data-id="{{item.i_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="toDetailInfo">
     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
@@ -180,10 +180,10 @@
     </view>
   </view>
   <view class="button-sp-area">
-    <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="setTop" data-infoid="{{item.i_id}}">置顶</button>
+    <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="setLevel" data-infoid="{{item.i_id}}" data-level="1">置顶</button>
+    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setLevel" data-infoid="{{item.i_id}}" data-level="2">套红</button>
+    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setLevel" data-infoid="{{item.i_id}}" data-level="3">加粗</button>
     <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setRefresh" data-infoid="{{item.i_id}}">刷新</button>
-    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setRed" data-infoid="{{item.i_id}}">套红</button>
-    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setBold" data-infoid="{{item.i_id}}">加粗</button>
     <button class="weui-btn mini-btn" type="default" size="mini" bindtap="setDeal" data-infoid="{{item.i_id}}">已成交</button>
   </view>
 

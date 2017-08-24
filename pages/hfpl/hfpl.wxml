@@ -6,22 +6,25 @@
       <text class="red">请文明评论，严禁恶意不实评论！</text>
     </view>
   </view>
+  <form bindsubmit="commentInfo">
   <view class="page__bd">
     <view class="weui-cells__title">回复评论</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd">
-          <textarea class="weui-textarea" placeholder="请输入回复评论" style="height: 3.3em" />
-          <view class="weui-textarea-counter">0/200</view>
+            <input type="text" name="replyid" value="{{userid}}" hidden/>
+            <input type="text" name="infoid" value="{{infoid}}" hidden/>
+          <textarea class="weui-textarea" placeholder="请输入回复评论" style="height: 3.3em" bindinput="writeNum" maxlength="200" name="content"/>
+          <view class="weui-textarea-counter">{{textNum}}/200</view>
         </view>
       </view>
     </view>
   </view>
   <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap="replySuccess">发布回复</button>
+    <button class="weui-btn" type="primary" form-type="submit">发布回复</button>
   </view>
   <view class="weui-btn-area">
     <button class="weui-btn" type="default" bindtap="replyCancel">取消回复</button>
   </view>
-  
+  </form>
 </view>

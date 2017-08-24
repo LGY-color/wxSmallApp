@@ -43,6 +43,7 @@ class Base{
         
       },
       fail: function(res) {
+        
         console.log(res);
       },
       complete: function(res) {},

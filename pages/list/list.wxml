@@ -188,7 +188,7 @@
             <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">
               <block wx:for="{{infoData.img_url}}">
                 <swiper-item>
-                  <image src="{{item}}" class="slide-image" mode="scaleToFill"/>
+                  <image src="{{item}}" class="slide-image" mode="scaleToFill" />
                 </swiper-item>
               </block>
             </swiper>
@@ -215,21 +215,24 @@
     </view>
     <!--评论-->
     <view class="">
-      <view class="weui-cells__title">
-        <text>网友评论</text>
-        <text class="red">请文明评论，严禁恶意不实评论！</text>
-      </view>
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell">
-          <view class="weui-cell__bd">
-            <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
-            <view class="weui-textarea-counter">0/200</view>
+      <form bindsubmit="commentInfo">
+        <view class="weui-cells__title">
+          <text>网友评论</text>
+          <text class="red">请文明评论，严禁恶意不实评论！</text>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <input type="text" name="infoid" value="{{infoData.i_id}}" hidden/>
+              <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" bindinput="writeNum" maxlength="200" name="content"/>
+              <view class="weui-textarea-counter">{{textNum}}/200</view>
+            </view>
           </view>
         </view>
-      </view>
-      <view class="weui-btn-area">
-        <button class="weui-btn" type="primary">发布评论</button>
-      </view>
+        <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" form-type="submit">发布评论</button>
+        </view>
+      </form>
     </view>
 
     <!--评论列表-->
@@ -241,8 +244,8 @@
       </view>
 
       <view class="weui-panel__bd">
-        <block wx:for="{{commentData}}" >
-          <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindlongtap="longTapReply" data-username="冰凉冰凉">
+        <block wx:for="{{commentData}}">
+          <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindlongtap="longTapReply" data-userid="{{item.uid}}" data-infoid="{{infoData.i_id}}">
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
               <image class="weui-media-box__thumb" src="{{icon60}}" />
             </view>
@@ -254,7 +257,7 @@
               </view>
               <view class="weui-media-box__desc">{{item.update_time}}</view>
               <view class="weui-media-box__title commit">
-                <text class="hf" wx:if="{{item.ur_name != null}}">回复：{{item.ur_name}}</text> 
+                <text class="hf" wx:if="{{item.ur_name != null}}">回复：{{item.ur_name}}</text>
                 {{item.content}}
               </view>
             </view>

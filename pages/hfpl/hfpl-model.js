@@ -1,16 +1,7 @@
 import { Base } from '../../utils/base.js';
-class List extends Base {
+class Hfpl extends Base {
   constructor() {
     super();
-  }
-  getInfoById(id, callBack) {
-    var params = {
-      url: 'Info/getIdInfo/' + id,
-      sCallBack: function (res) {
-        callBack && callBack(res);
-      }
-    }
-    this.request(params);
   }
   commentInfo(data, callBack) {
     var params = {
@@ -26,4 +17,4 @@ class List extends Base {
   }
 }
 
-export { List };
+export { Hfpl };

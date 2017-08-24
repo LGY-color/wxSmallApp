@@ -9,6 +9,7 @@ Page({
   data: {
     length: 6,
     icon60: '../../images/demoimages.png',
+    textNum: 0
   },
 
   /**
@@ -82,19 +83,32 @@ Page({
   onShareAppMessage: function () {
 
   },
+  // 写评论字数
+  writeNum:function(event){
+    this.setData({
+      'textNum':event.detail.cursor
+    });
+  },
+  // 回复消息
+  commentInfo:function(event){
+    var data = event.detail.value;
+    list.commentInfo(data,(res)=>{
+      
+    });
+    console.log(event.detail.value);
+  },
   // 评论长按回复
   longTapReply: function (event) {
-    console.log(this.data.infoData);
-    console.log(event.currentTarget.dataset.username);
+    // console.log(event.currentTarget.dataset.username);
+    var userid = list.getDataSet(event,'userid');
+    var infoid = list.getDataSet(event,'infoid');
     wx.navigateTo({
-      url: '../hfpl/hfpl',
+      url: '../hfpl/hfpl?userid='+userid+'&infoid='+infoid,
     })
   },
   //返回
   onReToMenu:function(){
-    wx.navigateBack({
-      
-    })
+    wx.navigateBack();
   }
   // //点击弹窗回复
   // actionSheetTap: function () {

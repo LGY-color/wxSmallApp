@@ -22,4 +22,5 @@ Config.top_time = ['1', '3', '10', '20', '30'];
 Config.top_money = ['18','48','148','268','348'];
 Config.red_money = 6;
 Config.bold_money = 3;
+Config.refresh_money = 6;
 export {Config};

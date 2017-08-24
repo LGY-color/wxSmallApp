@@ -1,18 +1,29 @@
 // hfpl.js
+import { Hfpl } from 'hfpl-model.js';
+var hfpl = new Hfpl();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    textNum:0,
+    userid:null,
+    infoid:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var userid = options.userid;
+    var infoid = options.infoid;
+    this.setData({
+      'userid':userid,
+      'infoid':infoid
+    });
+    console.log(userid);
+    console.log(infoid);
   },
 
   /**
@@ -63,11 +74,30 @@ Page({
   onShareAppMessage: function () {
   
   },
-  // 回复评论
-  replySuccess:function(){
-    wx.navigateBack({
-      
-    })
+  // 写评论字数
+  writeNum:function(event){
+    this.setData({
+      'textNum':event.detail.cursor
+    });
+  },
+  // 回复消息
+  commentInfo:function(event){
+    console.log(event.detail.value);
+    var data = event.detail.value;
+    hfpl.commentInfo(data,(res)=>{
+      res = JSON.parse(res);
+      wx.showToast({
+        title: res.msg,
+        icon: 'success',
+        duration: 1000,
+        success: function () {
+          setTimeout(function () {
+            wx.navigateBack();
+          }, 1000);
+        }
+      });
+    });
+    
   },
   replyCancel:function(){
     wx.navigateBack({

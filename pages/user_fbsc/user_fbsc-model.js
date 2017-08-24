@@ -25,6 +25,24 @@ class Fbsc extends Base {
         }
         this.request(params);
     }
+    setRefresh(infoid,callBack){
+        var params = {
+            url: 'info/setRefresh/'+infoid,
+            sCallBack: function (res) {
+                callBack && callBack(res);
+            }
+        }
+        this.request(params);
+    }
+    setDeal(infoid,callBack){
+        var params = {
+            url: 'info/setDeal/'+infoid,
+            sCallBack: function (res) {
+                callBack && callBack(res);
+            }
+        }
+        this.request(params);
+    }
 }
 
 export { Fbsc };

@@ -82,6 +82,7 @@ Page({
   },
   // 回复消息
   commentInfo:function(event){
+    var that = this;
     console.log(event.detail.value);
     var data = event.detail.value;
     hfpl.commentInfo(data,(res)=>{
@@ -92,7 +93,9 @@ Page({
         duration: 1000,
         success: function () {
           setTimeout(function () {
-            wx.navigateBack();
+            wx.redirectTo({
+              url: '../list/list?id='+that.data.infoid
+            })
           }, 1000);
         }
       });

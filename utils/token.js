@@ -4,6 +4,7 @@ class Token{
         this.verifyUrl = Config.restUrl + 'token/verify';
         this.tokenUrl = Config.restUrl + 'token/user';
         this.username = '';
+        this.img = '';
     }
     verify(){
         var token = wx.getStorageSync('token');
@@ -43,7 +44,8 @@ class Token{
                     method:'POST',
                     data:{
                         "code":res.code,
-                        "username":that.username
+                        "username":that.username,
+                        "img":that.img_url
                     },
                     success:function(res){
                         wx.setStorageSync('token', res.data.token);
@@ -58,7 +60,9 @@ class Token{
         wx.getUserInfo({
             success: function (res) {
             //   console.log(res.userInfo.nickName);
-              that.username = res.userInfo.nickName;
+            that.username = res.userInfo.nickName;
+            that.img_url = res.userInfo.avatarUrl;
+
             }
         })
     }

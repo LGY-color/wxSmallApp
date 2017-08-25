@@ -1,4 +1,6 @@
 // user.js
+import { User } from 'user-model.js';
+var user = new User();
 var app = getApp();
 Page({
 
@@ -20,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
     this.setData({
       "userInfo":app.globalData.userInfo
     });
@@ -31,10 +33,16 @@ Page({
         this.setData({
           "userInfo":app.globalData.userInfo
         });
+        that._loadData();
       });
     }
+    that._loadData();
   },
-
+  _loadData:function(){
+    user.getNoReadNum((res)=>{
+      console.log(res);
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -92,6 +100,12 @@ Page({
   toReToFbsc: function () {
     wx.redirectTo({
       url: '../user_fbsc/user_fbsc',
+    })
+  },
+  //跳转到消息评论
+  onReToXxpl:function(){
+    wx.redirectTo({
+      url: '../user_xxpl/user_xxpl',
     })
   }
 })

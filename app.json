@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index", 
+    "pages/user_xxpl/user_xxpl",
+    "pages/user_plxx/user_plxx",
+    "pages/user_fbsc/user_fbsc",
     "pages/edit_pd/edit_pd",
     "pages/edit/edit",
     "pages/list/list",
@@ -10,8 +13,6 @@
     "pages/user/user", 
     "pages/hfpl/hfpl",
     "pages/user_zhje/user_zhje",
-    "pages/user_plxx/user_plxx",
-    "pages/user_fbsc/user_fbsc",
     "pages/edit_sb/edit_sb",
     "pages/edit_cb/edit_cb",
     "pages/edit_zg/edit_zg",

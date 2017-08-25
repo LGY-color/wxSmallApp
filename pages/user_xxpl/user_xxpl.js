@@ -1,6 +1,6 @@
-// user_plxx.js
-import { Plxx } from 'user_plxx-model.js';
-var plxx = new Plxx();
+// user_xxpl.js
+import { Xxpl } from 'user_xxpl-model.js';
+var xxpl = new Xxpl();
 Page({
 
   /**
@@ -10,7 +10,7 @@ Page({
     icon60: '../../images/demoimages.png',
     commentData:[],
     page:0,
-    commentRes:1
+    newsRes:1
   },
 
   /**
@@ -21,18 +21,18 @@ Page({
   },
   _loadData:function(page=0){
     var that = this;
-    var commentRes = that.data.commentRes;
-    console.log(commentRes);
-    if(commentRes == ''){
+    var newsRes = that.data.newsRes;
+    console.log(newsRes);
+    if(newsRes == ''){
       wx.showToast({
         title: '没有更多了',
         icon: 'loading',
         duration: 1000,
       });
     }else{
-      plxx.getUserComment(page,(res)=>{
+      xxpl.getUserNews(page,(res)=>{
         that.setData({
-          commentRes : res,
+          newsRes : res,
           commentData : that.data.commentData.concat(res)
         });
       });
@@ -98,7 +98,7 @@ Page({
   },
   //去查看信息详情
   toDetailInfo:function(event){
-    var infoid = plxx.getDataSet(event,'infoid');
+    var infoid = xxpl.getDataSet(event,'infoid');
     wx.navigateTo({
       url: '../list/list?id=' + infoid,
     })

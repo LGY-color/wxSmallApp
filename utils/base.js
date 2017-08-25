@@ -32,6 +32,13 @@ class Base{
         if(startChar == '2'){
           params.sCallBack && params.sCallBack(res.data);
         }else{
+          if(startChar == '4'){
+            wx.showToast({
+              title: '操作失败',
+              image: '../../images/cry.png',
+              duration: 1000,
+            });
+          }
           if(code == '401'){
             //token.getTokenFromServer
             //base.request

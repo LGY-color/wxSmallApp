@@ -9,8 +9,9 @@
     <view class="page__desc">
       <text>{{infoData.update_time}}</text>
       <text>查看：{{infoData.click_num}}</text>
-      <button class="sc">
-        收藏 
+      <button class="sc" bindtap="setCollection">
+        <block wx:if="{{collection == 1}}">已收</block>
+        <block wx:else>收藏</block>
       </button>
     </view>
   </view>
@@ -224,7 +225,9 @@
           <view class="weui-cell">
             <view class="weui-cell__bd">
               <input type="text" name="infoid" value="{{infoData.i_id}}" hidden/>
-              <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" bindinput="writeNum" maxlength="200" name="content"/>
+              <input type="text" name="authorid" value="{{infoData.uid}}" hidden/>
+              <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" bindinput="writeNum" maxlength="200" name="content"
+              />
               <view class="weui-textarea-counter">{{textNum}}/200</view>
             </view>
           </view>
@@ -245,9 +248,10 @@
 
       <view class="weui-panel__bd">
         <block wx:for="{{commentData}}">
-          <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindlongtap="longTapReply" data-userid="{{item.uid}}" data-infoid="{{infoData.i_id}}">
+          <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindlongtap="longTapReply" data-userid="{{item.uid}}"
+            data-infoid="{{infoData.i_id}}">
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-              <image class="weui-media-box__thumb" src="{{icon60}}" />
+              <image class="weui-media-box__thumb" src="{{item.uimg==null?icon60:item.uimg}}"></image>
             </view>
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
               <view class="weui-media-box__title username">
@@ -264,7 +268,14 @@
           </view>
         </block>
       </view>
-
+      <block wx:if="{{commentData != ''}}">
+        <view class="weui-panel__ft">
+          <view class="weui-cell weui-cell_access weui-cell_link" bindtap="getMoreComment">
+            <view class="weui-cell__bd">查看更多</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </view>
+        </view>
+      </block>
     </view>
 
     <!--悬浮按钮-->

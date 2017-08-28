@@ -33,11 +33,14 @@
               </view>
               <view class="weui-media-box__desc">{{item.update_time}}</view>
               <view class="weui-media-box__title commit">
-                <text class="hf" wx:if="{{item.ur_name != null}}">回复：{{item.ur_name}}</text>
+                <text class="hf" wx:if="{{item.ur_name != null}}">回复：{{item.ur_name ==''? item.ur_name :'你'}}</text>
                 {{item.content}}
               </view>
             </view>
           </view>
+          <block wx:if="{{index == noReadNum && noReadNum != 0}}">
+            <view class="weui-media-box weui-media-box_appmsg">以上为未读消息</view>
+          </block>
         </block>
       </view>
       <block wx:if="{{commentData != ''}}">

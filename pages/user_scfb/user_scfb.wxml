@@ -3,9 +3,9 @@
 <!--user_fbsc.wxml-->
 <view class="page">
   <view class="page__hd">
-    <view class="page__title">发布消息</view>
-    <view class="page__desc">发布过的信息列表，支持置顶刷新修改等功能，
-      <text class="red">点击列表可看见功能栏</text>
+    <view class="page__title">收藏信息</view>
+    <view class="page__desc">您收藏的信息
+      <!-- <text class="red">点击列表可看见功能栏</text> -->
     </view>
   </view>
   <!--筛选栏-->
@@ -19,14 +19,14 @@
         </block>
       </view>
     </view>
-    <!--栏目列表模板一-->
+    <!--栏目列表模板一 店铺转让-->
     <view class="dpzr">
       <view class="mypanel">
         <view class="weui-panel weui-panel_access">
-          <!--<view class="weui-panel__hd">图文组合列表</view>-->
+          <view class="weui-panel__hd">收藏信息</view>
           <view class="weui-panel__bd">
             <block wx:for="{{infoData}}" wx:key="*this">
-              <template is="img-title-content-btn" data="{{item,icon60}}"></template>
+              <template is="title-content-big" data="{{item,icon60}}"></template>
             </block>
           </view>
           <view class="weui-panel__ft">
@@ -38,6 +38,7 @@
         </view>
       </view>
     </view>
+    
   </view>
 
   <!--悬浮按钮-->

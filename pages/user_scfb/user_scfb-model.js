@@ -1,12 +1,12 @@
 import { Base } from '../../utils/base.js';
 
-class User extends Base {
+class Scfb extends Base {
     constructor() {
         super();
     }
-    getNoReadNum(callBack) {
+    getInfoById(page,callBack) {
         var params = {
-            url: 'comment/getNoReadNum',
+            url: 'collection/getUserCollection?page='+page,
             sCallBack: function (res) {
                 callBack && callBack(res);
             }
@@ -15,4 +15,4 @@ class User extends Base {
     }
 }
 
-export { User };
+export { Scfb };

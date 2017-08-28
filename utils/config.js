@@ -23,4 +23,5 @@ Config.top_money = ['18','48','148','268','348'];
 Config.red_money = 6;
 Config.bold_money = 3;
 Config.refresh_money = 6;
+Config.unlock_money = 158;
 export {Config};

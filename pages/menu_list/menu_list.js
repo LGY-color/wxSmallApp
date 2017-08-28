@@ -92,7 +92,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('onShow');
     this._loadData();
   },
   _loadData: function (page = 0, lv = 0) {
@@ -193,4 +192,10 @@ Page({
       url: '../menu/menu',
     })
   },
+  //下拉刷新
+  onPullDownRefresh:function(){
+    this._loadData();
+    wx.stopPullDownRefresh();
+    console.log('下拉刷新');
+  }
 })

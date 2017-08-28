@@ -10,13 +10,17 @@ Page({
     icon60: '../../images/demoimages.png',
     commentData:[],
     page:0,
-    newsRes:1
+    newsRes:1,
+    noReadNum:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      'noReadNum':options.num - 1
+    });
     this._loadData();
   },
   _loadData:function(page=0){

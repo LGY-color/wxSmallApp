@@ -19,8 +19,8 @@ Page({
     top_money: Config.top_money,
     red_money: Config.red_money,
     bold_money: Config.bold_money,
-    refresh_money:Config.refresh_money
-
+    refresh_money:Config.refresh_money,
+    unlock_money:Config.unlock_money
   },
 
   /**
@@ -295,6 +295,20 @@ Page({
         }
       }
     });
+  },
+  toEdit:function(){
+    console.log('edit');
+    wx.showModal({
+      title: '提示',
+      content: '是否去修改信息',
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   //跳转到个人中心
   onReToMenu: function () {

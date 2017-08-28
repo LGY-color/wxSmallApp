@@ -32,9 +32,10 @@ class Base{
         if(startChar == '2'){
           params.sCallBack && params.sCallBack(res.data);
         }else{
+          var tip = JSON.parse(res.data);
           if(startChar == '4'){
             wx.showToast({
-              title: '操作失败',
+              title: tip.msg,
               image: '../../images/cry.png',
               duration: 1000,
             });

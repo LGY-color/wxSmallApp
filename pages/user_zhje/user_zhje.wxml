@@ -9,26 +9,41 @@
       <view class="weui-form-preview__hd">
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">当前金币数</view>
-          <view class="weui-form-preview__value_in-hd">20000</view>
+          <view class="weui-form-preview__value_in-hd">{{userInfo.gold_coin}}</view>
         </view>
       </view>
       <view class="weui-form-preview__bd">
         <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">已经发布：</view>
-          <view class="weui-form-preview__value">6条</view>
+          <view class="weui-form-preview__label">剩余发布数：</view>
+          <view class="weui-form-preview__value">{{userInfo.publish_num}}</view>
         </view>
+        
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">刷新费用：</view>
-          <view class="weui-form-preview__value">5金币</view>
+          <view class="weui-form-preview__value">{{refresh_money}}金币</view>
         </view>
         <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">置顶费用：d</view>
-          <view class="weui-form-preview__value">18金币</view>
+          <view class="weui-form-preview__label">套红费用：</view>
+          <view class="weui-form-preview__value">{{red_money}}金币</view>
         </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">加粗费用：</view>
+          <view class="weui-form-preview__value">{{bold_money}}金币</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">解锁费用：</view>
+          <view class="weui-form-preview__value">{{unlock_money}}金币</view>
+        </view>
+        <block wx:for="{{top_day}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">置顶天数：{{item}}</view>
+            <view class="weui-form-preview__value">{{top_money[index]}}金币</view>
+          </view>
+        </block>
       </view>
       <view class="weui-form-preview__ft">
-        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">解锁</navigator>
-        <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">充值</navigator>
+        <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="onUnlock">解锁</view>
+        <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">充值</view>
       </view>
     </view>
   </view>

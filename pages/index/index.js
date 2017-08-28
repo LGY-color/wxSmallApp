@@ -253,5 +253,11 @@ Page({
       });
     });
   },
+  //下拉刷新
+  onPullDownRefresh:function(){
+    this._loadData();
+    wx.stopPullDownRefresh();
+    console.log('下拉刷新');
+  }
 
 })

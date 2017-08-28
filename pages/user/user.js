@@ -16,6 +16,7 @@ Page({
     icon205: '../../images/xx_user.png',
     icon206: '../../images/sz_user.png',
     userInfo: null,
+    noReadNum: 0,
   },
 
   /**
@@ -24,74 +25,77 @@ Page({
   onLoad: function (options) {
     var that = this;
     this.setData({
-      "userInfo":app.globalData.userInfo
+      "userInfo": app.globalData.userInfo
     });
     // console.log(this.data.userInfo);
-    if(!app.globalData.userInfo){
-      app.userSureLogin((res)=>{
+    if (!app.globalData.userInfo) {
+      app.userSureLogin((res) => {
         console.log(res);
         this.setData({
-          "userInfo":app.globalData.userInfo
+          "userInfo": app.globalData.userInfo
         });
         that._loadData();
       });
     }
     that._loadData();
   },
-  _loadData:function(){
-    user.getNoReadNum((res)=>{
-      console.log(res);
+  _loadData: function () {
+    var that = this;
+    user.getNoReadNum((res) => {
+      that.setData({
+        'noReadNum': res.noReadNum
+      });
     });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
-  onReToPlxx:function(){
+  onReToPlxx: function () {
     wx.redirectTo({
       url: '../user_plxx/user_plxx',
     })
@@ -102,10 +106,26 @@ Page({
       url: '../user_fbsc/user_fbsc',
     })
   },
-  //跳转到消息评论
-  onReToXxpl:function(){
+  toReToScfb: function () {
     wx.redirectTo({
-      url: '../user_xxpl/user_xxpl',
+      url: '../user_scfb/user_scfb',
     })
+  },
+  toReZhje:function(){
+    wx.redirectTo({
+      url: '../user_zhje/user_zhje',
+    })
+  },
+  //跳转到消息评论
+  onReToXxpl: function () {
+    var num = this.data.noReadNum;
+    wx.redirectTo({
+      url: '../user_xxpl/user_xxpl?num=' + num,
+    })
+  },
+  onPullDownRefresh: function () {
+    this._loadData();
+    wx.stopPullDownRefresh();
+    console.log('下拉刷新');
   }
 })

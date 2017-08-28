@@ -6,7 +6,7 @@ class Xxpl extends Base {
     }
     getUserNews(page,callBack) {
         var params = {
-            url: 'news/getUserNews?page='+page,
+            url: 'comment/getUserNews?page='+page,
             sCallBack: function (res) {
                 callBack && callBack(res);
             }

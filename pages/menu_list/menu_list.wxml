@@ -3,7 +3,7 @@
 <import src="../template/template.wxml" />
 
 <view class="page">
-  <scroll-view scroll-y="true" style="height: {{windowHeight}}px;" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-top="{{scrollTop}}" lower-threshold="50" data-status="{{scrollStatus}}">
+  <scroll-view scroll-y="true" style="height: {{windowHeight}}px;" bindscrolltolower="lower" scroll-top="{{scrollTop}}" lower-threshold="50" data-status="{{scrollStatus}}">
     <!--搜索-->
     <template is="searchbar" data="" />
     <!--筛选栏-->

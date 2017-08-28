@@ -1,0 +1,8 @@
+/* user_fbsc.wxss */
+.button-sp-area{
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+}
+.button-sp-area .weui-btn{
+  margin-left: 2px;
+}

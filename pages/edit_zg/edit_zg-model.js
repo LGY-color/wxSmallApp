@@ -17,6 +17,28 @@ class Zgqz extends Base {
 
         this.request(params);
     }
+    editInfo(data,callBack) {
+        var params = {
+            url: 'info/UpdateInfo',
+            data: data,
+            type: 'POST',
+            dataType:'JSON',
+            sCallBack: function (res) {
+                callBack && callBack(res);
+            }
+        }
+
+        this.request(params);
+    }
+    getInfoById(id,callBack) {
+        var params = {
+          url: 'Info/getInfoById/' + id,
+          sCallBack: function (res) {
+            callBack && callBack(res);
+          }
+        }
+        this.request(params);
+    }
 }
 
 export { Zgqz };

@@ -23,12 +23,51 @@ Page({
   data: {
     xcpd: null,
     files: [],
+    edit:false
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this._loadData();
+
+    var infoid = options.infoid;
+    if(infoid){
+      this._loadInfo(infoid);
+      this.setData({
+        'infoid':infoid,
+        'edit' : true
+      })
+    }
+  },
+  _loadInfo:function(infoid){
+    var that = this;
+    xcpd.getInfoById(infoid,(res)=>{
+      res = res[0];
+      that.setData({
+        iclassify: res.big_item_name,
+        iprovince: res.province,
+        ititle: res.title,
+        ivalid_period: res.valid_period,
+        imonthly_rent: res.monthly_rent,
+        iday_turnover: res.day_turnover,
+        itransfer_fee: res.transfer_fee,
+        ishop_area: res.shop_area,
+        icontent: res.content,
+        icontact_name: res.contact_name,
+        icontact_phone: res.contact_phone,
+        icontact_wx: res.contact_wx,
+        iwater_electricity: res.water_electricity,
+        ito_serve : res.to_serve,
+        idecoration: res.decoration,
+        isurroundings : res.surroundings,
+        ishop_facilities: res.shop_facilities,
+        ihold_credentials: res.hold_credentials,
+        ilocation : res.location,
+        ifiles : res.img_url,
+        id_url : res.id_url
+      });
+    });
   },
   _loadData: function () {
     var that = this;
@@ -183,29 +222,56 @@ Page({
     // })
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value);
     var data = e.detail.value;
+    var edit = this.data.edit;
+    data.infoid = this.data.infoid;
     data.img_url = this.data.files;
+    // data.id_url = this.data.id_url;
     console.log(data);
-    xcpd.addInfo(e.detail.value, (res) => {
-      if(res == 1){
-        wx.showToast({
-          title: '发布成功',
-          icon: 'success',
-          duration: 1000
-        });
-        setTimeout(function(){
-          wx.navigateBack();
-        },1000);
-        
-      }else{
-        wx.showToast({
-          title: '发布异常,请重试',
-          image: '../../images/cry.png',
-          duration: 2000
-        });
-      }
-    });
+    if(edit){
+      xcpd.editInfo(data, (res) => {
+        if(res == 1){
+          wx.showToast({
+            title: '发布成功',
+            icon: 'success',
+            duration: 1000
+          });
+          setTimeout(function(){
+            wx.navigateBack();
+          },1000);
+          
+        }else{
+          wx.showToast({
+            title: '发布异常,请重试',
+            image: '../../images/cry.png',
+            duration: 2000
+          });
+        }
+      });
+    }else{
+      //添加信息
+      xcpd.addInfo(data, (res) => {
+        if(res == 1){
+          wx.showToast({
+            title: '发布成功',
+            icon: 'success',
+            duration: 1000
+          });
+          setTimeout(function(){
+            wx.navigateBack();
+          },1000);
+          
+        }else{
+          wx.showToast({
+            title: '发布异常,请重试',
+            image: '../../images/cry.png',
+            duration: 2000
+          });
+        }
+      });
+    }
+    
   },
   formReset: function () {
     console.log('form发生了reset事件')

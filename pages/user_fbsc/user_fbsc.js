@@ -296,14 +296,31 @@ Page({
       }
     });
   },
-  toEdit:function(){
+  toEdit:function(event){
     console.log('edit');
+    var infoid = fbsc.getDataSet(event,'id');
+    var bid = fbsc.getDataSet(event,'bid');
     wx.showModal({
       title: '提示',
       content: '是否去修改信息',
       success: function(res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          if(bid==5 || bid==6){
+              //xcpd
+              wx.navigateTo({
+                url: '../edit_pd/edit_pd?infoid='+infoid
+              });
+          }else if(bid==7 || bid==8){
+              //zgqz
+              wx.navigateTo({
+                url: '../edit_zg/edit_zg?infoid='+infoid
+              });
+          }else if(bid==9 || bid==10){
+              //dmcb
+          }else if(bid==11 || bid==12){
+              //essc 
+          }
+          console.log('用户点击确定');
         } else if (res.cancel) {
           console.log('用户点击取消')
         }

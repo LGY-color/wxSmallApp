@@ -23,12 +23,47 @@ Page({
   data: {
     zgqz: null,
     files: [],
+    edit:false
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this._loadData();
+    var infoid = options.infoid;
+    if(infoid){
+      this._loadInfo(infoid);
+      this.setData({
+        'infoid':infoid,
+        'edit' : true
+      })
+    }
+  },
+  _loadInfo:function(infoid){
+    var that = this;
+    zgqz.getInfoById(infoid,(res)=>{
+      res = res[0];
+      that.setData({
+        iclassify: res.big_item_name,
+        iprovince: res.province,
+        ititle: res.title,
+        ivalid_period: res.valid_period,
+        imonthly_salary: res.monthly_salary,
+        isex : res.sex,
+        iwork_experience: res.work_experience,
+        iwork_skill : res.work_skill,
+        iwork_hours : res.work_hours,
+        iage : res.age,
+        ihealth_status: res.health_status,
+        icash_pledge : res.cash_pledge,
+        ilive_conditions : res.live_conditions,
+        itakeaway_status :res.takeaway_status,
+        iopen_hours:res.open_hours,
+        iclose_hours:res.close_hours,
+        ifiles : res.img_url,
+        id_url : res.id_url
+      });
+    });
   },
   _loadData: function () {
     var that = this;

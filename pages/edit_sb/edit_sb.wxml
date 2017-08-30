@@ -22,9 +22,9 @@
               <view class="weui-label">分类</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{essc.classify[classify]}}" range="{{essc.classify}}" data-name="classify"
+              <picker bindchange="bindPickerChange" value="{{essc.classify[classify]==null?iclassify:essc.classify[classify]}}" range="{{essc.classify}}" data-name="classify"
                 name="classify" placeholder="请选择">
-                <view class="weui-input">{{essc.classify[classify]}}</view>
+                <view class="weui-input">{{essc.classify[classify]==null?iclassify:essc.classify[classify]}}</view>
               </picker>
             </view>
           </view>
@@ -39,9 +39,9 @@
               <view class="weui-label">地区</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{essc.province[province]}}" range="{{essc.province}}" data-name="province"
+              <picker bindchange="bindPickerChange" value="{{essc.province[province]==null?iprovince:essc.province[province]}}" range="{{essc.province}}" data-name="province"
                 name="province">
-                <view class="weui-input">{{essc.province[province]}}</view>
+                <view class="weui-input">{{essc.province[province]==null?iprovince:essc.province[province]}}</view>
               </picker>
             </view>
           </view>
@@ -53,7 +53,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">标题</view>
-            <input class="weui-input" placeholder="请输入标题" name="title" />
+            <input class="weui-input" placeholder="请输入标题" name="title" value="{{ititle}}"/>
           </view>
         </view>
       </view>
@@ -66,9 +66,9 @@
               <view class="weui-label">有效期</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{essc.valid_period[valid_period]}}" range="{{essc.valid_period}}" data-name="valid_period"
+              <picker bindchange="bindPickerChange" value="{{essc.valid_period[valid_period]==null?ivalid_period:essc.valid_period[valid_period]}}" range="{{essc.valid_period}}" data-name="valid_period"
                 name="valid_period">
-                <view class="weui-input">{{essc.valid_period[valid_period]}}</view>
+                <view class="weui-input">{{essc.valid_period[valid_period]==null?ivalid_period:essc.valid_period[valid_period]}}</view>
               </picker>
             </view>
           </view>
@@ -83,9 +83,9 @@
               <view class="weui-label">新旧程度</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{essc.new_old[new_old]}}" range="{{essc.new_old}}" data-name="new_old"
+              <picker bindchange="bindPickerChange" value="{{essc.new_old[new_old]==null?inew_old:essc.new_old[new_old]}}" range="{{essc.new_old}}" data-name="new_old"
                 name="new_old">
-                <view class="weui-input">{{essc.new_old[new_old]}}</view>
+                <view class="weui-input">{{essc.new_old[new_old]==null?inew_old:essc.new_old[new_old]}}</view>
               </picker>
             </view>
           </view>
@@ -97,7 +97,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell">
             <view class="weui-cell__bd">
-              <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" name="content" />
+              <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" name="content" value="{{icontent}}"/>
               <!--<view class="weui-textarea-counter">0/200</view>-->
             </view>
           </view>
@@ -108,7 +108,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">联系人</view>
-            <input class="weui-input" placeholder="请输入联系人" name="contact_name" />
+            <input class="weui-input" placeholder="请输入联系人" name="contact_name" value="{{icontact_name}}"/>
           </view>
         </view>
       </view>
@@ -117,7 +117,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">联系电话</view>
-            <input class="weui-input" type="number" placeholder="请输入联系电话" name="contact_phone" />
+            <input class="weui-input" type="number" placeholder="请输入联系电话" name="contact_phone" value="{{icontact_phone}}"/>
           </view>
         </view>
       </view>
@@ -126,7 +126,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">微信</view>
-            <input class="weui-input" placeholder="请输入微信" name="contact_wx" />
+            <input class="weui-input" placeholder="请输入微信" name="contact_wx" value="{{icontact_wx}}"/>
           </view>
         </view>
       </view>
@@ -159,7 +159,12 @@
         </view>
       </view>
       <view class="btn-area btn">
-        <button formType="submit" class="weui-btn" type="primary">确定发布</button>
+        <block wx:if="{{edit == true}}">
+          <button formType="submit" class="weui-btn" type="primary">确定修改</button>
+        </block>
+        <block wx:else>
+          <button formType="submit" class="weui-btn" type="primary">确定发布</button>
+        </block>
         <!-- <button formType="reset" class="weui-btn">重置</button> -->
       </view>
     </form>

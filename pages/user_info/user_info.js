@@ -1,8 +1,8 @@
 // edit.js
-import { Essc } from 'edit_sb-model.js';
+import { Info } from 'user_info-model.js';
 import { Config } from '../../utils/config.js';
 const qiniuUploader = require("../../utils/qiniuUploader");
-var essc = new Essc();
+var info = new Info();
 var app = getApp();
 //七牛云初始参数
 function initQiniu() {
@@ -30,46 +30,17 @@ Page({
    */
   onLoad: function (options) {
     this._loadData();
-
-    var infoid = options.infoid;
-    if(infoid){
-      this._loadInfo(infoid);
-      this.setData({
-        'infoid':infoid,
-        'edit' : true
-      });
-    }
-  },
-  _loadInfo:function(infoid){
-    var that = this;
-    essc.getInfoById(infoid,(res)=>{
-      res = res[0];
-      that.setData({
-        iclassify: res.big_item_name,
-        iprovince: res.province,
-        ititle: res.title,
-        ivalid_period: res.valid_period,
-        inew_old: res.new_old,
-        icontent: res.content,
-        icontact_name: res.contact_name,
-        icontact_phone: res.contact_phone,
-        icontact_wx: res.contact_wx,
-        files: res.img_url,
-        id_url: res.id_url
-      });
-    });
+    console.log(app.globalData);
   },
   _loadData: function () {
     var that = this;
-    wx.getStorage({
-      key: 'essc',
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          "essc": res.data
-        });
-      }
-    })
+    info.getUserInfo((res)=>{
+      res = res[0];
+      console.log(res);
+      that.setData({
+        'userInfo': res
+      });
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -119,10 +90,6 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // checkbox
-  checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value);
-  },
   // uploadImg
   chooseImage: function (e) {
     var filesLength = this.data.files.length;
@@ -159,87 +126,29 @@ Page({
       delta: 1 // 回退前 delta(默认为1) 页面
     })
   },
-  // pick选择器
-  bindPickerChange: function (e) {
-    var name = essc.getDataSet(e, 'name');
-    switch (name) {
-      case 'classify':
-        this.setData({
-          classify: e.detail.value
-        });
-        break;
-      case 'province':
-        this.setData({
-          province: e.detail.value
-        });
-        break;
-      case 'valid_period':
-        this.setData({
-          valid_period: e.detail.value
-        });
-        break;
-      case 'new_old':
-        this.setData({
-          new_old: e.detail.value
-        });
-        break;
-      // default:
-      //   n 与 case 1 和 case 2 不同时执行的代码
-    }
-    console.log('picker发送选择改变，携带值为', e.detail.value);
-    // this.setData({
-    //   index: e.detail.value
-    // })
-  },
+
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
     var data = e.detail.value;
-    var edit = this.data.edit;
-    data.infoid = this.data.infoid;
-    data.img_url = this.data.files;
-    console.log(data);
-    if(edit){
-      essc.editInfo(data, (res) => {
-        if(res == 1){
-          wx.showToast({
-            title: '发布成功',
-            icon: 'success',
-            duration: 1000
-          });
-          setTimeout(function(){
-            wx.navigateBack();
-          },1000);
-          
-        }else{
-          wx.showToast({
-            title: '发布异常,请重试',
-            image: '../../images/cry.png',
-            duration: 2000
-          });
-        }
-      });
-    }else{
-      //添加信息
-      essc.addInfo(data, (res) => {
-        if(res == 1){
-          wx.showToast({
-            title: '发布成功',
-            icon: 'success',
-            duration: 1000
-          });
-          setTimeout(function(){
-            wx.navigateBack();
-          },1000);
-          
-        }else{
-          wx.showToast({
-            title: '发布异常,请重试',
-            image: '../../images/cry.png',
-            duration: 2000
-          });
-        }
-      });
-    }
+    info.editInfo(data, (res) => {
+      if(res == 1){
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+          duration: 1000
+        });
+        setTimeout(function(){
+          wx.navigateBack();
+        },1000);
+        
+      }else{
+        wx.showToast({
+          title: '保存异常,请重试',
+          image: '../../images/cry.png',
+          duration: 2000
+        });
+      }
+    });
   },
   formReset: function () {
     console.log('form发生了reset事件')

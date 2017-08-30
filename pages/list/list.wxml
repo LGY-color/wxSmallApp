@@ -171,10 +171,22 @@
             <view class="weui-form-preview__value">{{infoData.decoration}}</view>
           </view>
         </view>
+        <view wx:if="{{infoData.shop_address != ''}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">店铺地址：</view>
+            <view class="weui-form-preview__value">{{infoData.shop_address}}</view>
+          </view>
+        </view>
         <view wx:if="{{infoData.content != ''}}">
           <view class="weui-form-preview__item">
             <view class="weui-form-preview__label">详情描述：</view>
             <view class="weui-form-preview__value">{{infoData.content}}</view>
+          </view>
+        </view>
+        <view wx:if="{{infoData.star == 1}}">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">星级信息：</view>
+            <view class="weui-form-preview__value">{{infoData.star_info}}</view>
           </view>
         </view>
       </view>

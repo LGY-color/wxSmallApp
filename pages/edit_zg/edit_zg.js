@@ -43,6 +43,7 @@ Page({
     var that = this;
     zgqz.getInfoById(infoid,(res)=>{
       res = res[0];
+      console.log(res);
       that.setData({
         iclassify: res.big_item_name,
         iprovince: res.province,
@@ -60,8 +61,12 @@ Page({
         itakeaway_status :res.takeaway_status,
         iopen_hours:res.open_hours,
         iclose_hours:res.close_hours,
-        ifiles : res.img_url,
-        id_url : res.id_url
+        icontact_name:res.contact_name,
+        icontact_phone: res.contact_phone,
+        icontact_wx: res.contact_wx,
+        icontent:res.content,
+        files:res.img_url,
+        id_url: res.id_url
       });
     });
   },
@@ -70,7 +75,7 @@ Page({
     wx.getStorage({
       key: 'zgqz',
       success: function (res) {
-        console.log(res.data)
+        // console.log(res.data)
         that.setData({
           "zgqz": res.data
         });
@@ -127,7 +132,7 @@ Page({
   },
   // checkbox
   checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value);
+    // console.log('checkbox发生change事件，携带value值为：', e.detail.value);
   },
   // uploadImg
   chooseImage: function (e) {
@@ -247,38 +252,63 @@ Page({
       // default:
       //   n 与 case 1 和 case 2 不同时执行的代码
     }
-    console.log('picker发送选择改变，携带值为', e.detail.value);
+    // console.log('picker发送选择改变，携带值为', e.detail.value);
     // this.setData({
     //   index: e.detail.value
     // })
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value);
     var data = e.detail.value;
+    var edit = this.data.edit;
     data.img_url = this.data.files;
-    console.log(data);
-    zgqz.addInfo(e.detail.value, (res) => {
-      if (res == 1) {
-        wx.showToast({
-          title: '发布成功',
-          icon: 'success',
-          duration: 1000
-        });
-        setTimeout(function () {
-          wx.navigateBack();
-        }, 1000);
-
-      } else {
-        wx.showToast({
-          title: '发布异常,请重试',
-          image: '../../images/cry.png',
-          duration: 2000
-        });
-      }
-    });
+    data.infoid = this.data.infoid;
+    // console.log(data);
+    if(edit){
+      zgqz.editInfo(data, (res) => {
+        if(res == 1){
+          wx.showToast({
+            title: '发布成功',
+            icon: 'success',
+            duration: 1000
+          });
+          setTimeout(function(){
+            wx.navigateBack();
+          },1000);
+          
+        }else{
+          wx.showToast({
+            title: '发布异常,请重试',
+            image: '../../images/cry.png',
+            duration: 2000
+          });
+        }
+      });
+    }else{
+      zgqz.addInfo(data, (res) => {
+        if (res == 1) {
+          wx.showToast({
+            title: '发布成功',
+            icon: 'success',
+            duration: 1000
+          });
+          setTimeout(function () {
+            wx.navigateBack();
+          }, 1000);
+  
+        } else {
+          wx.showToast({
+            title: '发布异常,请重试',
+            image: '../../images/cry.png',
+            duration: 2000
+          });
+        }
+      });
+    }
+    
   },
   formReset: function () {
-    console.log('form发生了reset事件')
+    // console.log('form发生了reset事件')
   },
   //上传图片
   upImg: function (data) {
@@ -296,7 +326,7 @@ Page({
         duration: 1000
       });
     }, (error) => {
-      console.error('error: ' + JSON.stringify(error));
+      // console.error('error: ' + JSON.stringify(error));
       // var files = that.data.files.pop();
       wx.showToast({
         title: '上传失败，请重试',

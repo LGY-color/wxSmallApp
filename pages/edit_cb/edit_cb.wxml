@@ -21,9 +21,9 @@
               <view class="weui-label">分类</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{dmcb.classify[classify]}}" range="{{dmcb.classify}}" data-name="classify"
+              <picker bindchange="bindPickerChange" value="{{dmcb.classify[classify]==null?iclassify:dmcb.classify[classify]}}" range="{{dmcb.classify}}" data-name="classify"
                 name="classify" placeholder="请选择">
-                <view class="weui-input">{{dmcb.classify[classify]}}</view>
+                <view class="weui-input">{{dmcb.classify[classify]==null?iclassify:dmcb.classify[classify]}}</view>
               </picker>
             </view>
           </view>
@@ -38,9 +38,9 @@
               <view class="weui-label">地区</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{dmcb.province[province]}}" range="{{dmcb.province}}" data-name="province"
+              <picker bindchange="bindPickerChange" value="{{dmcb.province[province]==null?iprovince:dmcb.province[province]}}" range="{{dmcb.province}}" data-name="province"
                 name="province">
-                <view class="weui-input">{{dmcb.province[province]}}</view>
+                <view class="weui-input">{{dmcb.province[province]==null?iprovince:dmcb.province[province]}}</view>
               </picker>
             </view>
           </view>
@@ -52,7 +52,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">标题</view>
-            <input class="weui-input" placeholder="请输入标题" name="title" />
+            <input class="weui-input" placeholder="请输入标题" name="title" value="{{ititle}}"/>
           </view>
         </view>
       </view>
@@ -65,9 +65,9 @@
               <view class="weui-label">有效期</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{dmcb.valid_period[valid_period]}}" range="{{dmcb.valid_period}}" data-name="valid_period"
+              <picker bindchange="bindPickerChange" value="{{dmcb.valid_period[valid_period]==null?ivalid_period:dmcb.valid_period[valid_period]}}" range="{{dmcb.valid_period}}" data-name="valid_period"
                 name="valid_period">
-                <view class="weui-input">{{dmcb.valid_period[valid_period]}}</view>
+                <view class="weui-input">{{dmcb.valid_period[valid_period]==null?ivalid_period:dmcb.valid_period[valid_period]}}</view>
               </picker>
             </view>
           </view>
@@ -82,9 +82,9 @@
               <view class="weui-label">月租金</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{dmcb.monthly_rent[monthly_rent]}}" range="{{dmcb.monthly_rent}}" data-name="monthly_rent"
+              <picker bindchange="bindPickerChange" value="{{dmcb.monthly_rent[monthly_rent]==null?imonthly_rent:dmcb.monthly_rent[monthly_rent]}}" range="{{dmcb.monthly_rent}}" data-name="monthly_rent"
                 name="monthly_rent">
-                <view class="weui-input">{{dmcb.monthly_rent[monthly_rent]}}</view>
+                <view class="weui-input">{{dmcb.monthly_rent[monthly_rent]==null?imonthly_rent:dmcb.monthly_rent[monthly_rent]}}</view>
               </picker>
             </view>
           </view>
@@ -99,9 +99,9 @@
               <view class="weui-label">日营业额</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{dmcb.day_turnover[day_turnover]}}" range="{{dmcb.day_turnover}}" data-name="day_turnover"
+              <picker bindchange="bindPickerChange" value="{{dmcb.day_turnover[day_turnover]==null?iday_turnover:dmcb.day_turnover[day_turnover]}}" range="{{dmcb.day_turnover}}" data-name="day_turnover"
                 name="day_turnover">
-                <view class="weui-input">{{dmcb.day_turnover[day_turnover]}}</view>
+                <view class="weui-input">{{dmcb.day_turnover[day_turnover]==null?iday_turnover:dmcb.day_turnover[day_turnover]}}</view>
               </picker>
             </view>
           </view>
@@ -112,7 +112,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">店铺面积</view>
-            <input class="weui-input" placeholder="店铺面积" name="shop_area" />
+            <input class="weui-input" placeholder="店铺面积" name="shop_area" value="{{ishop_area}}"/>
           </view>
         </view>
       </view>
@@ -122,7 +122,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell">
             <view class="weui-cell__bd">
-              <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" name="content" />
+              <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" name="content" value="{{icontent}}"/>
               <!--<view class="weui-textarea-counter">0/200</view>-->
             </view>
           </view>
@@ -133,7 +133,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">联系人</view>
-            <input class="weui-input" placeholder="请输入联系人" name="contact_name" />
+            <input class="weui-input" placeholder="请输入联系人" name="contact_name" value="{{icontact_name}}"/>
           </view>
         </view>
       </view>
@@ -142,7 +142,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">联系电话</view>
-            <input class="weui-input" type="number" placeholder="请输入联系电话" name="contact_phone" />
+            <input class="weui-input" type="number" placeholder="请输入联系电话" name="contact_phone" value="{{icontact_phone}}"/>
           </view>
         </view>
       </view>
@@ -151,7 +151,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">微信</view>
-            <input class="weui-input" placeholder="请输入微信" name="contact_wx" />
+            <input class="weui-input" placeholder="请输入微信" name="contact_wx" value="{{icontact_wx}}"/>
           </view>
         </view>
       </view>
@@ -190,9 +190,9 @@
               <view class="weui-label">装修情况</view>
             </view>
             <view class="weui-cell__bd">
-              <picker bindchange="bindPickerChange" value="{{dmcb.decoration[decoration]}}" range="{{dmcb.decoration}}" data-name="decoration"
+              <picker bindchange="bindPickerChange" value="{{dmcb.decoration[decoration]==null?idecoration:dmcb.decoration[decoration]}}" range="{{dmcb.decoration}}" data-name="decoration"
                 name="decoration">
-                <view class="weui-input">{{dmcb.decoration[decoration]}}</view>
+                <view class="weui-input">{{dmcb.decoration[decoration]==null?idecoration:dmcb.decoration[decoration]}}</view>
               </picker>
             </view>
           </view>
@@ -245,7 +245,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-label">店铺地址</view>
-            <input class="weui-input" placeholder="请输入店铺地址" name="location" />
+            <input class="weui-input" placeholder="请输入店铺地址" name="shop_address" value="{{ishop_address}}"/>
           </view>
         </view>
       </view>
@@ -277,7 +277,12 @@
         </view>
       </view>
       <view class="btn-area btn">
-        <button formType="submit" class="weui-btn" type="primary">确定发布</button>
+        <block wx:if="{{edit == true}}">
+          <button formType="submit" class="weui-btn" type="primary">确定修改</button>
+        </block>
+        <block wx:else>
+          <button formType="submit" class="weui-btn" type="primary">确定发布</button>
+        </block>
         <!-- <button formType="reset" class="weui-btn">重置</button> -->
       </view>
     </form>

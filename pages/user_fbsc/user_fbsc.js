@@ -317,8 +317,14 @@ Page({
               });
           }else if(bid==9 || bid==10){
               //dmcb
+              wx.navigateTo({
+                url: '../edit_cb/edit_cb?infoid='+infoid
+              });
           }else if(bid==11 || bid==12){
               //essc 
+              wx.navigateTo({
+                url: '../edit_sb/edit_sb?infoid='+infoid
+              });
           }
           console.log('用户点击确定');
         } else if (res.cancel) {

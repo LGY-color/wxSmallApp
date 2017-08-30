@@ -1,0 +1,103 @@
+<!--user_info.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">信息中心</view>
+    <view class="page__desc">
+      温馨提示：为提高信息发布真实性，请完善您的信息，
+      <text class="red">有助于盘店成功</text>
+    </view>
+  </view>
+  <view class="list">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <!--input-->
+      <view class="classname">
+        <view class="weui-cells__title">用户昵称</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-label">昵称</view>
+            <input class="weui-input" placeholder="用户昵称" name="username" value="{{userInfo.username}}"/>
+          </view>
+        </view>
+      </view>
+      <!--input-->
+      <view class="classname">
+        <view class="weui-cells__title">手机号码</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-label">手机</view>
+            <input class="weui-input" placeholder="手机号码" name="phone" value="{{userInfo.phone}}"/>
+          </view>
+        </view>
+      </view>
+      <!--input-->
+      <view class="classname">
+        <view class="weui-cells__title">微信号码</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-label">微信</view>
+            <input class="weui-input" placeholder="微信号码" name="weixin" value="{{userInfo.weixin}}"/>
+          </view>
+        </view>
+      </view>
+      <!--input-->
+      <view class="classname">
+        <view class="weui-cells__title">QQ号码</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-label">QQ</view>
+            <input class="weui-input" placeholder="QQ号码" name="qq" value="{{userInfo.qq}}"/>
+          </view>
+        </view>
+      </view>
+      <!--textarea-->
+      <view class="classname">
+        <view class="weui-cells__title">个人介绍</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <textarea class="weui-textarea" placeholder="请输入介绍" style="height: 3.3em" name="introduce" value="{{userInfo.introduce}}"/>
+              <!--<view class="weui-textarea-counter">0/200</view>-->
+            </view>
+          </view>
+        </view>
+      </view>
+      <!--uploadImg-->
+      <!-- <view class="classname">
+        <view class="weui-cells">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                  <view class="weui-uploader__title">图片上传</view>
+                  <view class="weui-uploader__info">{{files.length}}/3</view>
+                </view>
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files" id="uploaderFiles">
+                    <block wx:for="{{files}}" wx:key="*this">
+                      <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                      </view>
+                    </block>
+                  </view>
+                  <view class="weui-uploader__input-box">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view> -->
+      <view class="btn-area btn">
+
+        <button formType="submit" class="weui-btn" type="primary">保存信息</button>
+
+        <!-- <button formType="reset" class="weui-btn">重置</button> -->
+      </view>
+    </form>
+    <!--悬浮按钮-->
+    <view class="fixBtn" bindtap="backLast">
+      <button>返回上页</button>
+    </view>
+  </view>
+</view>

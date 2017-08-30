@@ -37,7 +37,7 @@ Page({
       this.setData({
         'infoid':infoid,
         'edit' : true
-      })
+      });
     }
   },
   _loadInfo:function(infoid){
@@ -63,8 +63,8 @@ Page({
         isurroundings : res.surroundings,
         ishop_facilities: res.shop_facilities,
         ihold_credentials: res.hold_credentials,
-        ilocation : res.location,
-        ifiles : res.img_url,
+        ishop_address : res.shop_address,
+        files : res.img_url,
         id_url : res.id_url
       });
     });

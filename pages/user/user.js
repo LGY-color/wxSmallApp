@@ -95,28 +95,37 @@ Page({
   onShareAppMessage: function () {
 
   },
+  //跳转到个人评论
   onReToPlxx: function () {
     wx.redirectTo({
       url: '../user_plxx/user_plxx',
     })
   },
-  //跳转到发布收藏
+  //跳转到已发布信息
   toReToFbsc: function () {
     wx.redirectTo({
       url: '../user_fbsc/user_fbsc',
     })
   },
+  //跳转到收藏信息
   toReToScfb: function () {
     wx.redirectTo({
       url: '../user_scfb/user_scfb',
     })
   },
+  //跳转到账户金额
   toReZhje:function(){
     wx.redirectTo({
       url: '../user_zhje/user_zhje',
     })
   },
-  //跳转到消息评论
+  //跳转到用户信息
+  toUserInfo:function(){
+    wx.redirectTo({
+      url: '../user_info/user_info',
+    })
+  },
+  //跳转到获得消息
   onReToXxpl: function () {
     var num = this.data.noReadNum;
     wx.redirectTo({

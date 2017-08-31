@@ -130,6 +130,10 @@ Page({
       }
     });
   },
+  //用户充值
+  addMoney:function(){
+    var data;
+  },
   onReToMenu:function(){
     wx.switchTab({
       url: '../user/user',

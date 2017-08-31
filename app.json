@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/index/index", 
+    "pages/index/index",
     "pages/user_info/user_info",
     "pages/user_zhje/user_zhje",
     "pages/user_xxpl/user_xxpl",
@@ -13,7 +13,7 @@
     "pages/menu/menu",
     "pages/menu_list/menu_list",
     "pages/pd_detail/pd_detail",
-    "pages/user/user", 
+    "pages/user/user",
     "pages/hfpl/hfpl",
     "pages/edit_sb/edit_sb",
     "pages/edit_cb/edit_cb",
@@ -21,14 +21,15 @@
     "pages/filter_list/filter_list",
     "pages/filter/filter",
     "pages/logs/logs",
-    "pages/template/template"
+    "pages/template/template",
+    "pages/add_money/add_money"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "盘店招工",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "list": [
@@ -58,5 +59,4 @@
       }
     ]
   }
-  
 }

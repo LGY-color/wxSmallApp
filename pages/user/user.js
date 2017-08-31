@@ -121,7 +121,7 @@ Page({
   },
   //跳转到用户信息
   toUserInfo:function(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../user_info/user_info',
     })
   },

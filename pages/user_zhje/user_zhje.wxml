@@ -43,7 +43,7 @@
       </view>
       <view class="weui-form-preview__ft">
         <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="onUnlock">解锁</view>
-        <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">充值</view>
+        <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="addMoney">充值</view>
       </view>
     </view>
   </view>

@@ -11,7 +11,12 @@ App({
     // wx.setStorageSync('logs', logs)
 
     // var usertoken = token.getTokenFromServer(); 
-    this.userSureLogin();
+    //询问用户是否登录
+    // this.userSureLogin();
+    //默认登录
+    // this.getUserInfo();
+    // token.getTokenFromServer();
+    
     this.addXcpd();
     this.addDmcb();
     this.addEssc();

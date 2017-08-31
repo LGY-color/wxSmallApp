@@ -22,6 +22,19 @@ class Zhje extends Base {
         }
         this.request(params);
     }
+    addMoney(data,callBack) {
+        var params = {
+            url: 'user/updateUser',
+            data: data,
+            type: 'POST',
+            dataType:'JSON',
+            sCallBack: function (res) {
+                callBack && callBack(res);
+            }
+        }
+
+        this.request(params);
+    }
 }
 
 export { Zhje };

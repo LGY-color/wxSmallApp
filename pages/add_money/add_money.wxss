@@ -17,7 +17,7 @@
 } */
 .weui-cells{
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto;
   border-radius: 5px;
 }
 .weui-cells::before,.weui-cells::after{

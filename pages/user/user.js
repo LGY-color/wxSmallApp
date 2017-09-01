@@ -28,15 +28,15 @@ Page({
       "userInfo": app.globalData.userInfo
     });
     // console.log(this.data.userInfo);
-    if (!app.globalData.userInfo) {
-      app.userSureLogin((res) => {
-        console.log(res);
-        this.setData({
-          "userInfo": app.globalData.userInfo
-        });
-        that._loadData();
-      });
-    }
+    // if (!app.globalData.userInfo) {
+    //   app.userSureLogin((res) => {
+    //     console.log(res);
+    //     this.setData({
+    //       "userInfo": app.globalData.userInfo
+    //     });
+    //     that._loadData();
+    //   });
+    // }
     that._loadData();
   },
   _loadData: function () {

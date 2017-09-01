@@ -2,12 +2,12 @@
 <view class="page">
     <view class="page__hd">
         <view class="page__title">金币充值</view>
-        <view class="page__desc">多从多得，功能强大，物超所值</view>
+        <view class="page__desc">多冲多得，功能强大，物超所值</view>
     </view>
     <view class="page__bd">
         <form bindsubmit="formSubmit" bindreset="formReset">
             <view class="weui-grids">
-                 <view class="weui-cells__title">充值金额</view> 
+                 <!-- <view class="weui-cells__title">充值金额</view>  -->
                 <view class="weui-cells weui-cells_after-title">
                     <view class="weui-cell weui-cell_input">
                         <view class="weui-label">￥</view>
@@ -19,5 +19,9 @@
                 </view>
             </view>
         </form>
+    </view>
+    <!--悬浮按钮-->
+    <view class="fixBtn" bindtap="backLast">
+      <button>返回上页</button>
     </view>
 </view>

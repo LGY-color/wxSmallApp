@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/add_money/add_money",
     "pages/user_info/user_info",
     "pages/user_zhje/user_zhje",
     "pages/user_xxpl/user_xxpl",
@@ -21,8 +22,8 @@
     "pages/filter_list/filter_list",
     "pages/filter/filter",
     "pages/logs/logs",
-    "pages/template/template",
-    "pages/add_money/add_money"
+    "pages/template/template"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

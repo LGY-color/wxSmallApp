@@ -24,4 +24,6 @@ Config.red_money = 6;
 Config.bold_money = 3;
 Config.refresh_money = 6;
 Config.unlock_money = 158;
+Config.weixin_money = 19;
+Config.topweixin_money = 9;
 export {Config};

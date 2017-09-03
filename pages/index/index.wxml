@@ -49,7 +49,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="circular">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
-          <image src="{{item}}" class="slide-image" mode="scaleToFill"/>
+          <image src="{{item.banner_img_url_text}}" class="slide-image" mode="scaleToFill"/>
         </swiper-item>
       </block>
     </swiper>
@@ -68,7 +68,7 @@
           <block wx:for="{{textValue}}">
             <swiper-item>
               <!--<image src="{{item}}" class="slide-image" />-->
-              <text class="text-value">{{item}}</text>
+              <text class="text-value">{{item.banner_img_url_text}}</text>
             </swiper-item>
           </block>
         </swiper>

@@ -20,7 +20,10 @@ Page({
     red_money: Config.red_money,
     bold_money: Config.bold_money,
     refresh_money:Config.refresh_money,
-    unlock_money:Config.unlock_money
+    unlock_money:Config.unlock_money,
+    weixin_money:Config.weixin_money,
+    topweixin_money:Config.topweixin_money
+
   },
 
   /**
@@ -40,9 +43,9 @@ Page({
     });
   },
   toDetailInfo: function (event) {
-    var id = fbsc.getDataSet(event, 'id');
+    var infoid = fbsc.getDataSet(event, 'infoid');
     wx.navigateTo({
-      url: '../list/list?id=' + id,
+      url: '../list/list?id=' + infoid,
     });
   },
   //提示
@@ -182,20 +185,30 @@ Page({
       }
     }
 
-    console.log("openConfirm");
     wx.showModal({
       title: '操作提示',
-      content: '是否花费' + money + '金币置顶',
+      content: '是否花费' + money + '金币操作',
       confirmText: "去支付",
       cancelText: "再考虑",
       success: function (res) {
         if (res.confirm) {
           // that.wxPay(),
           fbsc.setLevelStatus(data, (result) => {
-            console.log(result)
             result = JSON.parse(result);
+            console.log(result);
             if (result.error_code == '7788') {
-              console.log('微信支付');
+              wx.showToast({
+                title: result.msg,
+                image: '../../images/cry.png',
+                duration: 1000,
+                success: function () {
+                  setTimeout(function () {
+                    wx.navigateTo({
+                      url: '../add_money/add_money?money=' + money
+                    });
+                  }, 1000);
+                }
+              });
             } else {
               wx.showToast({
                 title: result.msg,
@@ -225,7 +238,7 @@ Page({
     var infoid = fbsc.getDataSet(event, 'infoid');
     wx.showModal({
       title: '操作提示',
-      content: '是否花费' + money + '金币置顶',
+      content: '是否花费' + money + '金币刷新',
       confirmText: "去支付",
       cancelText: "再考虑",
       success: function (res) {
@@ -235,7 +248,18 @@ Page({
             // res = JSON.parse(res); get 返回无需 对象化
             console.log(result)
             if (result.error_code == '7788') {
-              console.log('微信支付');
+              wx.showToast({
+                title: result.msg,
+                image: '../../images/cry.png',
+                duration: 1000,
+                success: function () {
+                  setTimeout(function () {
+                    wx.navigateTo({
+                      url: '../add_money/add_money?money=' + money
+                    });
+                  }, 1000);
+                }
+              });
             } else {
               wx.showToast({
                 title: result.msg,
@@ -258,6 +282,63 @@ Page({
       }
     });
   },
+  //微信推广
+  setWeixin:function(event){
+    var top = fbsc.getDataSet(event, 'top');
+    var infoid = fbsc.getDataSet(event, 'infoid');
+    if(top == 1){
+      var money = this.data.topweixin_money;
+    }else{
+      var money = this.data.weixin_money;
+    }
+    wx.showModal({
+      title: '操作提示',
+      content: '是否花费' + money + '金币刷新',
+      confirmText: "去支付",
+      cancelText: "再考虑",
+      success: function (res) {
+        if (res.confirm) {
+          // that.wxPay(),
+          fbsc.setWeixin(infoid, (result) => {
+            // res = JSON.parse(res); get 返回无需 对象化
+            console.log(result)
+            if (result.error_code == '7788') {
+              wx.showToast({
+                title: result.msg,
+                image: '../../images/cry.png',
+                duration: 1000,
+                success: function () {
+                  setTimeout(function () {
+                    wx.navigateTo({
+                      url: '../add_money/add_money?money=' + money
+                    });
+                  }, 1000);
+                }
+              });
+            } else {
+              wx.showToast({
+                title: result.msg,
+                icon: 'success',
+                duration: 1000,
+                success: function () {
+                  setTimeout(function () {
+                    wx.redirectTo({
+                      url: '../user_fbsc/user_fbsc'
+                    });
+                  }, 1000);
+                }
+              });
+            }
+          });
+          console.log('用户点击去支付')
+        } else {
+          console.log('用户点击再考虑')
+        }
+      }
+    });
+  },
+  //选择项目 设置成交 还是编辑
+
   //设置已成交
   setDeal:function(event){
     var infoid = fbsc.getDataSet(event, 'infoid');
@@ -296,10 +377,11 @@ Page({
       }
     });
   },
+  //去修改
   toEdit:function(event){
-    console.log('edit');
-    var infoid = fbsc.getDataSet(event,'id');
+    var infoid = fbsc.getDataSet(event,'infoid');
     var bid = fbsc.getDataSet(event,'bid');
+    console.log(bid);
     wx.showModal({
       title: '提示',
       content: '是否去修改信息',
@@ -333,6 +415,25 @@ Page({
       }
     })
   },
+  //按钮查看
+  onSetInfo: function (event) {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['去查看','去修改','已成交'],
+      success: function (res) {
+        if (!res.cancel) {
+          console.log(res.tapIndex)
+          if(res.tapIndex == 0){
+            that.toDetailInfo(event);
+          }else if (res.tapIndex == 1) {
+            that.toEdit(event);
+          }else{
+            that.setDeal(event);
+          }
+        }
+      }
+    });
+  },
   //跳转到个人中心
   onReToMenu: function () {
     console.log('onReToMenu');
@@ -340,6 +441,7 @@ Page({
       url: '../user/user'
     });
   },
+  
   // 微信支付
   wxPay: function () {
     wx.requestPayment({

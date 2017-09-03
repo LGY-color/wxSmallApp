@@ -6,11 +6,11 @@
       <view class="weui-panel__bd" bindtap="toUserInfo">
         <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{userInfo.avatarUrl != ''?userInfo.avatarUrl : icon60}}" />
+            <image class="weui-media-box__thumb" src="{{userInfo.img_url != ''?userInfo.img_url : icon60}}" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title">{{userInfo.nickName != ''?userInfo.nickName : '未登录'}}</view>
-            <view class="weui-media-box__desc">欢迎您到来，祝您心想事成！</view>
+            <view class="weui-media-box__title">{{userInfo.username != ''?userInfo.username : '未登录'}}</view>
+            <view class="weui-media-box__desc">{{userInfo.introduce != ''?userInfo.introduce :'欢迎您到来，祝您心想事成'}}</view>
           </view>
         </view>
       </view>

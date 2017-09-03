@@ -24,9 +24,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    this.setData({
-      "userInfo": app.globalData.userInfo
-    });
+    // this.setData({
+    //   "userInfo": app.globalData.userInfo
+    // });
     // console.log(this.data.userInfo);
     // if (!app.globalData.userInfo) {
     //   app.userSureLogin((res) => {
@@ -44,6 +44,13 @@ Page({
     user.getNoReadNum((res) => {
       that.setData({
         'noReadNum': res.noReadNum
+      });
+    });
+    user.getUserInfo((res) => {
+      res = res[0];
+      console.log(res);
+      that.setData({
+        'userInfo': res
       });
     });
   },

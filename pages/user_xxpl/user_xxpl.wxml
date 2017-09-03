@@ -29,7 +29,7 @@
               <view class="weui-media-box__title username">
                 <text>{{item.u_name}}</text>
                 <text class="fbz" wx:if="{{item.uid == infoData.uid}}">发布者</text>
-                <text class="lc">{{index+1}}楼</text>
+                <text class="lc">{{index+1}}条</text>
               </view>
               <view class="weui-media-box__desc">{{item.update_time}}</view>
               <view class="weui-media-box__title commit">
@@ -38,7 +38,7 @@
               </view>
             </view>
           </view>
-          <block wx:if="{{index == noReadNum && noReadNum != 0}}">
+          <block wx:if="{{index == noReadNum}}">
             <view class="weui-media-box weui-media-box_appmsg">以上为未读消息</view>
           </block>
         </block>

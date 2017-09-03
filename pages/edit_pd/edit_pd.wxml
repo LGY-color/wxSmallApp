@@ -194,11 +194,7 @@
             <view class="weui-label">外卖情况</view>
             <view class="weui-cells weui-cells_after-title">
               <radio-group bindchange="radioChange" name="to_serve">
-                <!--<label class="" wx:for="{{items}}" wx:key="{{item.value}}">
-                  <radio value="{{item.value}}" checked="true" />
-                <label class="weui-input">{{item.name}}</label>
-              </label>-->
-                <radio value="没有" checked="true" />
+                <radio value="没有" checked="false" />
                 <label class="weui-input">没有</label>
                 <radio value="偶尔" checked="false" />
                 <label class="weui-input">偶尔</label>

@@ -14,9 +14,9 @@ Page({
     userInfo: {},
     // -----轮播广告-----
     imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+      // 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      // 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+      // 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
     ],//图片来源
     indicatorDots: true,//是否有点
     autoplay: true,//自动播放
@@ -25,9 +25,9 @@ Page({
     circular: true,//是否采用衔接滑动
     // -----轮播弹幕-----
     textValue: [
-      '3天推广价48元',
-      '10天成交价148元',
-      '30天会员价348元'
+      // '3天推广价48元',
+      // '10天成交价148元',
+      // '30天会员价348元'
     ],//图片来源
     indicatorDots2: false,//是否有点
     autoplay2: true,//自动播放
@@ -81,6 +81,8 @@ Page({
     var that = this;
     index.getIndexData((res)=>{
       that.setData({
+        'imgUrls':res.banner_img,
+        'textValue':res.banner_text,
         'topData': res.top_info,
         'starData': res.star_info,
         'newData': res.new_info,
@@ -89,6 +91,7 @@ Page({
         'dmcbData': res.dmcb_info,
         'esscData': res.essc_info
       });
+      
     });
   },
   // //回调函数

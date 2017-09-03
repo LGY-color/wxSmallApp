@@ -34,6 +34,15 @@ class Fbsc extends Base {
         }
         this.request(params);
     }
+    setWeixin(infoid,callBack){
+        var params = {
+            url: 'info/setWeixin/'+infoid,
+            sCallBack: function (res) {
+                callBack && callBack(res);
+            }
+        }
+        this.request(params);
+    }
     setDeal(infoid,callBack){
         var params = {
             url: 'info/setDeal/'+infoid,

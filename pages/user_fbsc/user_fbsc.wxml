@@ -3,9 +3,9 @@
 <!--user_fbsc.wxml-->
 <view class="page">
   <view class="page__hd">
-    <view class="page__title">发布消息</view>
+    <view class="page__title">已发布信息</view>
     <view class="page__desc">发布过的信息列表，支持置顶刷新修改等功能，
-      <text class="red">点击列表可看见功能栏</text>
+      <text class="red">长按信息可看见功能栏</text>
     </view>
   </view>
   <!--筛选栏-->

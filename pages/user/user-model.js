@@ -13,6 +13,15 @@ class User extends Base {
         }
         this.request(params);
     }
+    getUserInfo(callBack) {
+        var params = {
+          url: 'user/getUserInfo',
+          sCallBack: function (res) {
+            callBack && callBack(res);
+          }
+        }
+        this.request(params);
+    }
 }
 
 export { User };

@@ -19,7 +19,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      'noReadNum':options.num - 1
+      'noReadNum':options.num-1
     });
     this._loadData();
   },

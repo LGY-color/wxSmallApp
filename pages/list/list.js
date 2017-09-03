@@ -23,12 +23,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     var id = options.id;
     
     this.setData({
       'info_id': id
     });
     this._loadData();
+    wx.showToast({
+      title: '加载中...',
+      icon: 'loading',
+      duration: 500,
+      success: function () {
+        // setTimeout(function () {
+          
+        // }, 1000);
+      }
+    });
+    
   },
   _loadData: function (page = 0) {
     var that = this;

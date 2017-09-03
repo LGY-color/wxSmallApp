@@ -14,8 +14,8 @@ App({
     //询问用户是否登录
     // this.userSureLogin();
     //默认登录
-    // this.getUserInfo();
-    // token.getTokenFromServer();
+    this.getUserInfo();
+    token.getTokenFromServer();
     
     this.addXcpd();
     this.addDmcb();

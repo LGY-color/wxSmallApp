@@ -150,7 +150,7 @@
 <!-- 带图的标题内容模板 带操作按钮-->
 <template name="img-title-content-btn">
 
-  <view data-id="{{item.i_id}}" data-bid="{{item.big_item_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="toDetailInfo" bindlongpress="toEdit">
+  <view data-infoid="{{item.i_id}}" data-bid="{{item.big_item_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="onSetInfo" bindlongpress="onSetInfo">
     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
       <image mode="scaleToFill" class="weui-media-box__thumb" src="{{item.img_url[0] != ''?item.img_url[0]:icon60}}" />
     </view>
@@ -181,10 +181,10 @@
   </view>
   <view class="button-sp-area">
     <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="setLevel" data-infoid="{{item.i_id}}" data-level="1">置顶</button>
-    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setLevel" data-infoid="{{item.i_id}}" data-level="2">套红</button>
-    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setLevel" data-infoid="{{item.i_id}}" data-level="3">加粗</button>
-    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setRefresh" data-infoid="{{item.i_id}}">刷新</button>
-    <button class="weui-btn mini-btn" type="default" size="mini" bindtap="setDeal" data-infoid="{{item.i_id}}">已成交</button>
+    <button class="weui-btn mini-btn" type="default" size="mini" bindtap="setLevel" data-infoid="{{item.i_id}}" data-level="2">套红</button>
+    <button class="weui-btn mini-btn" type="default" size="mini" bindtap="setLevel" data-infoid="{{item.i_id}}" data-level="3">加粗</button>
+    <button class="weui-btn mini-btn" type="default" size="mini" bindtap="setRefresh" data-infoid="{{item.i_id}}">刷新</button>
+    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="setWeixin" data-infoid="{{item.i_id}}" data-top="{{item.top}}">微信推广</button>
   </view>
 
 </template>

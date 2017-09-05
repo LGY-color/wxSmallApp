@@ -23,7 +23,8 @@ Page({
   data: {
     xcpd: null,
     files: [],
-    edit:false
+    edit:false,
+    btnLock:false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -228,7 +229,9 @@ Page({
     data.infoid = this.data.infoid;
     data.img_url = this.data.files;
     // data.id_url = this.data.id_url;
-    console.log(data);
+    this.setData({
+      'btnLock':true
+    });
     if(edit){
       xcpd.editInfo(data, (res) => {
         if(res == 1){

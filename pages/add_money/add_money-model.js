@@ -7,7 +7,7 @@ class addMoney extends Base {
 
     getOrderInfo(data,callBack){
         var params = {
-            url: 'pay/PreOrder?XDEBUG_SESSION_START=12980',
+            url: 'pay/PreOrder',
             data: data,
             type: 'POST',
             dataType:'JSON',

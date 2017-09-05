@@ -23,7 +23,8 @@ Page({
   data: {
     essc: null,
     files: [],
-    edit:false
+    edit:false,
+    btnLock:false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -192,12 +193,14 @@ Page({
     // })
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    this.setData({
+      'btnLock':true
+    });
     var data = e.detail.value;
     var edit = this.data.edit;
     data.infoid = this.data.infoid;
     data.img_url = this.data.files;
-    console.log(data);
+
     if(edit){
       essc.editInfo(data, (res) => {
         if(res == 1){

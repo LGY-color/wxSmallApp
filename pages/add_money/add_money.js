@@ -76,15 +76,15 @@ Page({
     var data = event.detail.value;
     add_money.getOrderInfo(data,(res)=>{
       console.log(res);
-      var preData = res.data;
+      var preData = JSON.parse(res);
       wx.requestPayment({
         timeStamp: preData.timeStamp.toString(),
         nonceStr: preData.nonceStr,
         package: preData.package,
         signType: preData.signType,
         paySign: preData.paySign,
-        success:function(){
-
+        success:function(res){
+          console.log(res);
         },
         fail:function(){
           

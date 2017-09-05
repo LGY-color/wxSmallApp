@@ -334,7 +334,12 @@
         </view>
       </view>
       <view class="btn-area btn">
-        <button formType="submit" class="weui-btn" type="primary">确定发布</button>
+        <block wx:if="{{edit == true}}">
+          <button formType="submit" class="weui-btn" type="primary" disabled="{{btnLock}}">确定修改</button>
+        </block>
+        <block wx:else>
+          <button formType="submit" class="weui-btn" type="primary" disabled="{{btnLock}}">确定发布</button>
+        </block>
         <!-- <button formType="reset" class="weui-btn">重置</button> -->
       </view>
     </form>
